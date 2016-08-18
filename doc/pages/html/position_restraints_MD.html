@@ -1,0 +1,187 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>4. Position restraints MD &mdash; Practical 13: AdK Tutorial 1.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="top" title="Practical 13: AdK Tutorial 1.0 documentation" href="index.html" />
+    <link rel="next" title="5. Equilibrium molecular dynamics" href="equilibrium_MD.html" />
+    <link rel="prev" title="3. Energy minimization" href="energy_minimization.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="equilibrium_MD.html" title="5. Equilibrium molecular dynamics"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="energy_minimization.html" title="3. Energy minimization"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Practical 13: AdK Tutorial 1.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="position-restraints-md">
+<span id="position-restraints"></span><h1>4. Position restraints MD<a class="headerlink" href="#position-restraints-md" title="Permalink to this headline">¶</a></h1>
+<p>We first perform a short MD simulation with harmonic position
+restraints on the heavy protein atoms. This allows the solvent to
+equilibrate around the protein without disturbing the protein
+structure. In addition, we use &#8220;weak coupling&#8221; temperature and
+pressure coupling algorithms to obtain the desired temperatue and
+pressure.</p>
+<div class="section" id="telling-gromacs-what-it-will-do-again">
+<h2>4.1. Telling Gromacs what it will do (again)<a class="headerlink" href="#telling-gromacs-what-it-will-do-again" title="Permalink to this headline">¶</a></h2>
+<p>We must first tell Gromacs <em>how</em> to perform our equilibration run
+in the same way that we did for the energy minimization step.
+This step requires the <code class="file docutils literal"><span class="pre">top/protein_posres.itp</span></code> file with the
+default value for the harmonic force constants of 1000
+kJ mol<sup>-1</sup> nm<sup>-2</sup>. The position restraints are switched on by setting the
+<code class="code docutils literal"><span class="pre">-DPOSRES</span></code> flag in the <code class="file docutils literal"><span class="pre">posres.mdp</span></code> file (see <a class="reference external" href="http://manual.gromacs.org/current/online/mdp_opt.html">mdp options</a>).</p>
+<p>Create the run input (TPR) file, using the <a class="reference internal" href="energy_minimization.html#energy-minimization"><span>energy minimized
+system</span></a> as the starting structure:</p>
+<div class="highlight-python"><div class="highlight"><pre>cd ../posres
+cp ../templates/posres.mdp .
+grompp -f posres.mdp -o posres.tpr -p ../top/4ake.top -c ../emin/em.pdb -maxwarn 2
+</pre></div>
+</div>
+<p>The mdp file contains cut-off settings that approximate the native
+CHARMM values (in the CHARMM program).</p>
+<p>Weak (Berendsen) coupling is used for both temperature and pressure to
+quickly equilibrate. The protein and the solvent (water and ions) are
+coupled as separate groups. Gromacs provides a range of groups
+automatically (run <code class="samp docutils literal"><span class="pre">make_ndx</span> <span class="pre">-f</span> <em><span class="pre">TPR</span></em></code> to see them) and we use
+the groups <code class="docutils literal"><span class="pre">Protein</span></code> and <code class="docutils literal"><span class="pre">non-Protein</span></code> (these particularly groups
+work roughly since Gromacs 4.5.3). If the standard groups do not work
+then you will have to create the groups yourself using <code class="samp docutils literal"><span class="pre">make_ndx</span>
+<span class="pre">-f</span> <em><span class="pre">TPR</span></em> <span class="pre">-o</span> <span class="pre">md.ndx</span></code> (which would save them in a file <code class="file docutils literal"><span class="pre">md.ndx</span></code>) and
+supply it to <code class="code docutils literal"><span class="pre">grompp</span> <span class="pre">-n</span> <span class="pre">md.ndx</span></code>.</p>
+</div>
+<div class="section" id="performing-the-equilibration-run">
+<h2>4.2. Performing the equilibration run<a class="headerlink" href="#performing-the-equilibration-run" title="Permalink to this headline">¶</a></h2>
+<p>Run the position restraints equilibration simulation:</p>
+<div class="highlight-python"><div class="highlight"><pre>mdrun -v -stepout 10 -s posres.tpr -deffnm posres -c posres.pdb
+</pre></div>
+</div>
+<p>(If this is too slow on your workstation, submit to saguaro using 8
+cores.)</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Here the runtime of 10 ps is too short for real production
+use; typically 1 - 5 ns are used.</p>
+</div>
+<p>In order to visually check your system, create trajectory with all
+molecules in the primary unitcell (<code class="docutils literal"><span class="pre">-ur</span> <span class="pre">compact</span></code>; see also below the
+more extensive notes on <a class="reference internal" href="trajectory_visualization.html#trajectory-visualization"><span>Trajectory visualization</span></a>):</p>
+<div class="highlight-python"><div class="highlight"><pre>echo &quot;System&quot; | trjconv -ur compact -s posres.tpr -f posres.xtc -pbc mol -o posres_ur.xtc
+</pre></div>
+</div>
+<p><strong>Check visually</strong>:</p>
+<div class="highlight-python"><div class="highlight"><pre>vmd ../emin/em.pdb posres_ur.xtc
+</pre></div>
+</div>
+<p>(If you don&#8217;t have a <strong class="program">vmd</strong> command available on the command
+line then launch <a class="reference external" href="http://www.ks.uiuc.edu/Research/vmd/">VMD</a>, load the <code class="docutils literal"><span class="pre">emin/em.pdb</span></code> file
+(<span class="menuselection">File ‣ New Molecule...</span>), highlight your molecule 1
+(&#8220;em.pdb&#8221;) and load the <code class="docutils literal"><span class="pre">posres/posres_ur.xtc</span></code> trajectory into your
+molecule 1&#8221;, <span class="menuselection">File ‣ Load Data Into Molecule</span>. You
+should see that the first frame (from the energy minimization) looks
+as if the water is in a distorted box shape whereas all further frames
+show a roughly spherical unit cell (the <a class="reference external" href="http://mathworld.wolfram.com/RhombicDodecahedron.html">rhombic dodecahedron</a>).)</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">4. Position restraints MD</a><ul>
+<li><a class="reference internal" href="#telling-gromacs-what-it-will-do-again">4.1. Telling Gromacs what it will do (again)</a></li>
+<li><a class="reference internal" href="#performing-the-equilibration-run">4.2. Performing the equilibration run</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="energy_minimization.html"
+                        title="previous chapter">3. Energy minimization</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="equilibrium_MD.html"
+                        title="next chapter">5. Equilibrium molecular dynamics</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/position_restraints_MD.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="equilibrium_MD.html" title="5. Equilibrium molecular dynamics"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="energy_minimization.html" title="3. Energy minimization"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Practical 13: AdK Tutorial 1.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2013, Oliver Beckstein.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.1.
+    </div>
+  </body>
+</html>
