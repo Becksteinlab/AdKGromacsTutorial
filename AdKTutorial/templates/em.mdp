@@ -1,28 +1,42 @@
-; Gromacs run parameter file for energy minimization
+; Run parameter file for energy minimization for Gromacs 5.1.3
 ; - backbone restraints enabled
-; - use flexible water for cg (-DFLEXSPC)
+; - use flexible water for cg (-DFLEXIBLE)
 
+#################################### INPUT ####################################
 include        = -I. -I.. -I../top
-define         = -DPOSRES 
+define         = -DPOSRES
 
-;integrator     = cg
-;integrator     = l-bfgs
-integrator     = steep
-emtol          = 500
-emstep         = 0.01
-nsteps         = 1000
-nstcgsteep     = 100
+################################# INTEGRATOR ##################################
+integrator            = steep          ; can be cg or l-bfgs
+emtol                 = 500            ; Energy minimization tolerance (kJ/mol)
+emstep                = 0.01           ; Energy minimization step size
+nsteps                = 1000           ; Number of minimization steps
+nstcgsteep            = 100            ; Frequency of steepest decent step (for CG)
 
-constraints              = none
-nstcomm                  = 1
-vdwtype                  = shift   ; use shift for L-BFGS
-coulombtype              = PME
-optimize_fft             = no
+nstcomm               = 1              ; Center of mass motion removal interval (timesteps)
 
-ns_type                  = grid
-rlist                    = 1.0
-rcoulomb                 = 1.0
-rvdw                     = 1.0
-rvdw-switch              = 0.8
+################################### OUTPUT ####################################
+nstxout-compressed    = 0              ; xtc trajectory output interval (timesteps)
+nstxout               = 10             ; Trajectory output interval (timesteps)
+nstlog                = 10             ; Log output interval (timesteps)
+nstfout               = 10             ; Force output interval (timesteps)
+nstenergy             = 10             ; Energy output interval (timesteps)
 
-nstxout                  = 0 ; write coords every # step
+########################### NONBONDED INTERACTIONS ############################
+cutoff-scheme         = Verlet         ; Method of managing neighbor lists
+nstlist               = 10             ; Update neighbor list every 20 steps
+ns_type               = grid           ; Neighbor-searching algorithm (simple or grid)
+
+coulombtype           = PME            ; Calculate coulomb interactions using PME
+rcoulomb              = 1.0            ; Coulomb cutoff (nm)
+
+vdwtype                = shift  ; use shift for L-BFGS
+;vdw-modifier           = Force-switch  ; Use Van der Waals force switching
+rvdw                   = 1.0           ; Van der Waals cutoff (nm)
+rvdw_switch            = 0.8           ; Van der Waals force switching (nm)
+rlist                  = 1.0           ; Neighbor list cutoff (nm) – ? (1.0)
+
+########################### CONSTRAINTS AND BONDS #############################
+constraints            = h-bonds       ; Convert the bonds with H-atoms to constraints
+constraint_algorithm   = LINCS         ; LINear Constraint Solver (faster + more stable than SHAKE)
+lincs-order            = 8             ; Highest order in expansion of constraint coupling matrix

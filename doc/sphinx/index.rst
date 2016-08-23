@@ -46,7 +46,7 @@ and run an equilibrium MD simulation of AdK using Gromacs.
 
 **Workflow details**
 
-  For this tutorial we use Gromacs_ (version 4.6.6) to set up the
+  For this tutorial we'll use Gromacs_ (version 5.1.3) to set up the
   system, run the simulation, and perform analysis. The overall work flow
   contains the following steps:
 
@@ -104,4 +104,3 @@ and run an equilibrium MD simulation of AdK using Gromacs.
 .. _Gromacs: http://www.gromacs.org
 .. _`AdKTutorial.tar.bz2`:
     http://becksteinlab.physics.asu.edu/pages/courses/2013/SimBioNano/13/AdKTutorial.tar.bz2
-

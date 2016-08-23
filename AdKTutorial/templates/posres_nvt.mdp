@@ -10,7 +10,7 @@ define                = -DPOSRES
 integrator             = md          ; Leap-frog integration
 tinit                  = 0.0         ; Initial time (ps)
 dt                     = 0.001       ; Timestep (ps)
-nsteps                 = 25000       ; Simulation duration (timesteps)
+nsteps                 = 50000       ; Simulation duration (timesteps)
 
 nstcomm                = 1000        ; Center of mass motion removal interval (timesteps)
 comm_mode              = linear      ; Center of mass motion removal
@@ -65,14 +65,6 @@ nsttcouple             = -1                  ; -1 (default) sets to nstlist for 
 tc_grps                = protein non-Protein ; Thermostat coupling groups (default or in index file)
 tau_t                  = 0.1     0.1         ; Thermostat coupling constant (ps) – ? (0.1)
 ref_t                  = 300     300         ; Reference temperature (K)
-
-pcoupl                 = berendsen
-pcoupltype             = isotropic
-nstpcouple             = -1                  ; -1 (default) sets to nstlist for nstlist > 0
-tau_p                  = 0.5                 ; Barostat coupling constant (ps) – ? (0.5)
-compressibility        = 4.5e-5              ; Use 4.5E-5 for water @ 1 atm/300 K
-ref_p                  = 1.0                 ; Reference pressure (bar)
-refcoord_scaling       = COM                 ; ref coords scaled w/ scaling matrix of p coupl
 
 ##################### GENERATE VELOCITIES FOR STARTUP RUN #####################
 gen_vel                  = yes
