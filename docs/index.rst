@@ -49,13 +49,15 @@ Contents:
 
 Overview of workflow
 --------------------
-For this tutorial we'll use Gromacs_ (version 5.1.3) to set up the system, run the simulation, and perform analysis. The overall work flow contains the following steps:
+For this tutorial we'll use Gromacs_ (version 5.1.3) to set up the system, run
+the simulation, and perform analysis. The overall work flow contains the
+following steps:
 
   1. Download tutorial files and organize the work space
 
   2. Setup
 
-     - Obtain structure 4AKE from PDB, select chain A
+     - Obtain structure 4AKE from PDB_, select chain A
 
      - Use default protonation states
 
@@ -63,13 +65,13 @@ For this tutorial we'll use Gromacs_ (version 5.1.3) to set up the system, run t
 
      - Solvate in water in simulation cell (rhombic dodecahedron)
 
-     - Add NaCl ions to neutralize and final physiological concentration
+     - Add NaCl ions to neutralize and obtain final physiological concentration
        of 100 mM
 
   3. Energy minimization (EM)
 
   4. Position restraint equilibration of solvent (MD); *NPT* (use weak
-    coupling (Berendsen) schemes)
+     coupling (Berendsen) schemes)
 
   5. Equilibrium MD simulation (unrestrained, *NPT*, use Nose-Hoover and
      Parrinello-Rahman temperature and pressure coupling)
@@ -79,12 +81,14 @@ For this tutorial we'll use Gromacs_ (version 5.1.3) to set up the system, run t
      - Center the protein in the box (periodic boundary conditions)
      - RMS-fit the protein in each snapshot to the first snapshot
 
-  All input files are provided in the same directory as :file:`AdKTutorial.html`. Start by uncompressing the package file::
+  All input files are provided in the same directory as
+  :file:`AdKTutorial.html`. Start by uncompressing the package file::
 
     tar -jxvf AdKTutorial.tar.bz2
     cd AdKTutorial
 
-  A starting structure can be found in the :file:`tutorial/coord` directory and MDP files are in :file:`AdKTutorial/templates`.
+  A starting structure can be found in the :file:`tutorial/coord` directory and
+  MDP files are in :file:`tutorial/templates`.
 
 
 Indices and tables
@@ -96,3 +100,4 @@ Indices and tables
 
 
 .. _Gromacs: http://www.gromacs.org
+.. _PDB: http://www.rcsb.org/pdb/home/home.do
