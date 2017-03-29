@@ -23,13 +23,11 @@ AdKGromacsTutorial: Simulating AdK with Gromacs
 
 Objective
 ---------
-Perform aa MD simulation of the the enzyme adenylate kinase
-(AdK) in its open conformation without a ligand bound. Simulate it in
-a realistic environment (100 mM NaCl solution at :math:`T = 300` K and
-:math:`P = 1` bar) and analyze its structural properties.
-
-This tutorial progresses through the individual steps needed to set up
-and run an equilibrium MD simulation of AdK using Gromacs.
+Perform an all-atom molecular dynamics (MD) simulation—using the Gromacs_
+MD package—of the apo (without a bound ligand) enzyme adenylate kinase (AdK) in
+its open conformation in a physiologically realistic environment (100 mM NaCl
+solution at :math:`T = 300` K and :math:`P = 1` bar). Carry out a basic analysis
+of its structural properties in equilibrium.
 
 
 Contents:
