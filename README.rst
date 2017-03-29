@@ -76,7 +76,7 @@ the following steps:
 .. _Gromacs: http://www.gromacs.org
 .. _PDB: http://www.rcsb.org/pdb/home/home.do
 
-.. |docs| image:: https://readthedocs.org/projects/adkgromacstutorial/badge/?version=master
+.. |docs| image:: https://readthedocs.org/projects/adkgromacstutorial/badge/
     :alt: Documentation Status
     :scale: 100%
     :target: https://readthedocs.org/projects/adkgromacstutorial
