@@ -26,56 +26,42 @@ a physiologically realistic environment, and carry out a basic analysis of its
 structural properties in equilibrium.
 
 
-Overview of workflow
-====================
+Workflow overview
+=================
 
 For this tutorial we'll use Gromacs_ (version 5.1.3) to set up the system, run
-the simulation, and perform analysis. The overall work flow contains the
+the simulation, and perform analysis. The overall workflow consists of the
 following steps:
 
-  1. Download tutorial files and organize the work space
+1. Download tutorial files and set up working directories
 
-  2. Setup
+2. Prepare the system
 
-     - Obtain structure 4AKE from PDB_, select chain A
+   - Obtain structure 4AKE from PDB_, select chain A
 
-     - Use default protonation states
+   - Generate topology using default protonation states
 
-     - Generate topology
+   - Solvate in water in simulation cell (rhombic dodecahedron)
 
-     - Solvate in water in simulation cell (rhombic dodecahedron)
+   - Add NaCl ions to neutralize and obtain final physiological concentration
+     of 100 mM
 
-     - Add NaCl ions to neutralize and obtain final physiological concentration
-       of 100 mM
+3. Perform energy minimization (:file:`tutorial/emin`)
 
-  3. Energy minimization (EM)
+4. Perform position-restrained equilibration in the in the isobaric-isothermal
+   (NPT) ensemble (:file:`tutorial/posres`)
 
-  4. Position restraint equilibration of solvent (MD); *NPT* (use weak
-     coupling (Berendsen) schemes)
+5. Run a production MD simulation in the NPT ensemble (:file:`tutorial/MD`)
 
-  5. Equilibrium MD simulation (unrestrained, *NPT*, use Nose-Hoover and
-     Parrinello-Rahman temperature and pressure coupling)
+6. Visualize the trajectory
 
-  6. Trajectory visualization
+   - Center the protein in the box (periodic boundary conditions)
 
-     - Center the protein in the box (periodic boundary conditions)
-     - RMS-fit the protein in each snapshot to the first snapshot
+   - RMS-fit the protein in each snapshot to the first snapshot
 
-  All input files are provided in the same directory as
-  :file:`AdKTutorial.html`. Start by uncompressing the package file::
-
-    tar -jxvf AdKTutorial.tar.bz2
-    cd AdKTutorial
-
-  A starting structure can be found in the :file:`tutorial/coord` directory and
-  MDP files are in :file:`tutorial/templates`.
-
-
-Indices and tables
-==================
-
-* :ref:`genindex`
-* :ref:`search`
+This tutorial provides an initial structure, which can be found in the
+:file:`tutorial/coord` directory, as well as the necessary MDP files that are
+necessary for input to Gromacs in :file:`tutorial/templates`.
 
 
 .. _Gromacs: http://www.gromacs.org
@@ -86,7 +72,8 @@ Indices and tables
 
 .. toctree::
    :maxdepth: 2
-   :caption: Workflow Summary
+   :numbered:
+   :caption: Contents
 
    directories
    preparation
@@ -95,3 +82,10 @@ Indices and tables
    simulation
    visualization
    analysis
+
+
+Indices and tables
+==================
+
+* :ref:`genindex`
+* :ref:`search`

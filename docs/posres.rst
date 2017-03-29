@@ -3,9 +3,9 @@
 .. |kJ/mol/nm**2| replace:: kJ mol\ :sup:`-1` nm\ :sup:`-2`
 .. |Calpha| replace:: C\ :sub:`α`
 
-======================
-Position restraints MD
-======================
+=================================
+Position-restrained equilibration
+=================================
 
 We first perform a short MD simulation with harmonic position
 restraints on the heavy protein atoms. This allows the solvent to
@@ -15,8 +15,8 @@ pressure coupling algorithms to obtain the desired temperatue,
 :math:`T = 300` K, and pressure, :math:`P = 1` bar.
 
 
-Telling Gromacs what it will do (again)
-=======================================
+Set up and generate the run file
+================================
 
 We must first tell Gromacs *how* to perform our equilibration run
 in the same way that we did for the energy minimization step.
@@ -46,8 +46,8 @@ then you will have to create the groups yourself using :samp:`make_ndx
 supply it to :code:`grompp -n md.ndx`.
 
 
-Performing the equilibration run
-================================
+Perform equilibration
+=====================
 
 Run the position restraints equilibration simulation::
 

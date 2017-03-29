@@ -7,8 +7,8 @@
 Equilibrium molecular dynamics
 ==============================
 
-Setup the production run
-========================
+Set up the production run
+=========================
 
 As usual, we must tell Gromacs what it will be doing using grompp_
 before we can perform our production simulation. Since we want to
@@ -25,8 +25,8 @@ The :file:`md.mdp` file uses different algorithms from the
 which are known to reproduce the exact *NPT* ensemble distribution.
 
 
-Running the simulation
-======================
+Run the simulation
+==================
 
 CPU run
 -------

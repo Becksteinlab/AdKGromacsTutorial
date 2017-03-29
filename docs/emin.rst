@@ -14,8 +14,8 @@ algorithm to change the coordinates in such a way as to reduce the
 total potential energy.
 
 
-Telling Gromacs what it will do
-===============================
+Set up and generate the run file
+================================
 
 First, we will copy a file from the templates folder (provided in this
 tutorial) that tells Gromacs MD program *how* to do energy minimization::
@@ -39,8 +39,8 @@ input file (TPR) from the run parameter file (MDP), coordinate file
   gmx grompp -f em.mdp -c ../solvation/ionized.pdb -p ../top/4ake.top -o em.tpr
 
 
-Performing an energy minimization run
-=====================================
+Perform energy minimization
+===========================
 
 The energy minimization is performed with :program:`mdrun` but by
 using the appropriate ``integrator`` option in the `Run control
