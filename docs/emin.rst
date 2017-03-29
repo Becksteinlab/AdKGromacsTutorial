@@ -22,13 +22,11 @@ tutorial) that tells Gromacs MD program *how* to do energy minimization::
 
   cp ../templates/em.mdp .
 
-.. Note::
-
-   The MDP file :file:`em.mdp` is provided in
-   :file:`templates/em.mdp`: copy it to the :file:`emin/`
-   directory. You should have a look at it and modify it according to
-   your needs. The individual parameters are explained under `mdp
-   options`_.
+.. Note:: The MDP file :file:`em.mdp` is provided in
+          :file:`templates/em.mdp`: copy it to the :file:`emin/`
+          directory. You should have a look at it and modify it according to
+          your needs. The individual parameters are explained under `mdp
+          options`_.
 
 This ``.mdp`` file contains the settings that dictate the nature of the
 simulation. For energy minimization, we will use the simple *steepest
@@ -38,7 +36,7 @@ input file (TPR) from the run parameter file (MDP), coordinate file
 (the solvated system with ions; PDB), and the topology (TOP)::
 
   cd ../emin
-  grompp -f em.mdp -c ../solvation/ionized.pdb -p ../top/4ake.top -o em.tpr
+  gmx grompp -f em.mdp -c ../solvation/ionized.pdb -p ../top/4ake.top -o em.tpr
 
 
 Performing an energy minimization run
@@ -49,20 +47,18 @@ using the appropriate ``integrator`` option in the `Run control
 options in the MDP file`_ it has been instructed to do a energy
 minimization::
 
-  mdrun -v -s em.tpr -deffnm em -c em.pdb
+  gmx mdrun -v -s em.tpr -deffnm em -c em.pdb
 
 Ideally, the maximum force *Fmax* (gradient of the potential) should
 be < 1e+03 |kJ/mol/nm**2| (but typically anything below 1e+05
 |kJ/mol/nm**2| works). See the screen output or the :file:`em.log` file for
 this information.
 
-.. Note::
-
-   If you want to minimize further, you can use the :file"`em.pdb`
-   structure as an input for a second run with either the *conjugate
-   gradients* (``integrator = cg``) or the Newton-like
-   *Broyden-Fletcher-Goldfarb-Shanno* (``integrator = l-bfgs``)
-   minimizer. For details see `Run control options in the MDP file`_.
+.. Note:: If you want to minimize further, you can use the :file"`em.pdb`
+          structure as an input for a second run with either the *conjugate
+          gradients* (``integrator = cg``) or the Newton-like
+          *Broyden-Fletcher-Goldfarb-Shanno* (``integrator = l-bfgs``)
+          minimizer. For details see `Run control options in the MDP file`_.
 
 
 .. _`AdKTutorial.tar.bz2`:

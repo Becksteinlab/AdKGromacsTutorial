@@ -18,7 +18,7 @@ prepare the TPR input file based on the last frame of the
 
   cd ../MD
   cp ../templates/md.mdp .
-  grompp -f md.mdp -p ../top/4ake.top -c ../posres/posres.pdb -o md.tpr -maxwarn 3
+  gmx grompp -f md.mdp -p ../top/4ake.top -c ../posres/posres.pdb -o md.tpr -maxwarn 3
 
 The :file:`md.mdp` file uses different algorithms from the
 :ref:`position-restraints` for the temperature and pressure coupling,
@@ -35,14 +35,14 @@ If your workstation has a decent number of cores or if you simply
 don't mind waiting a bit longer you can also run the simulation as
 usual::
 
-  mdrun -v -stepout 10 -s md.tpr -deffnm md -cpi
+  gmx mdrun -v -stepout 10 -s md.tpr -deffnm md -cpi
 
 This will automatically utilize all available cores. The :code:`-cpi`
 flag indicates that you want Gromacs to continue from a previous
 run. You can kill the job with :kbd:`CONTROL-C`, look at the output,
 then continue with exactly the same command line ::
 
-  mdrun -v -stepout 10 -s md.tpr -deffnm md -cpi
+  gmx mdrun -v -stepout 10 -s md.tpr -deffnm md -cpi
 
 (Try it out!). The :code:`-cpi` flag can be used on the first run
 without harm. For a continuation to occur, Gromacs needs to find the
@@ -58,8 +58,8 @@ a modified MDP file that contains settings compatible with GPU-based
 Gromacs simulations to generate a new TPR file, which is used to perform
 the simulation.
 
-  grompp -f mdgpu.mdp -p ../top/4ake.top -c ../posres/posres.pdb -o mdgpu.tpr -maxwarn 3
-  mdrun -v -stepout 10 -s mdgpu.tpr -deffnm mdgpu -cpi
+  gmx grompp -f mdgpu.mdp -p ../top/4ake.top -c ../posres/posres.pdb -o mdgpu.tpr -maxwarn 3
+  gmx mdrun -v -stepout 10 -s mdgpu.tpr -deffnm mdgpu -cpi
 
 
 .. _`AdKTutorial.tar.bz2`:

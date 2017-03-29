@@ -44,7 +44,7 @@ We will use the trjconv_ tool in Gromacs to center and remap our system.
 Center (:code:`-center`) on the *Protein* and remap all the molecules
 (:code:`-pbc mol`) of the whole *System*::
 
-  printf "Protein\nSystem\n" | trjconv -s md.tpr -f md.xtc -center -ur compact -pbc mol -o md_center.xtc
+  printf "Protein\nSystem\n" | gmx trjconv -s md.tpr -f md.xtc -center -ur compact -pbc mol -o md_center.xtc
 
 
 Pinning down a tumbling protein
@@ -61,7 +61,7 @@ RMS-fit (:code:`-fit rot+trans`) to the protein *backbone* atoms in
 the initial frame (supplied in the TPR file) and write out the
 whole *System*::
 
-  printf "Backbone\nSystem\n" | trjconv -s md.tpr -f md_center.xtc -fit rot+trans -o md_fit.xtc
+  printf "Backbone\nSystem\n" | gmx trjconv -s md.tpr -f md_center.xtc -fit rot+trans -o md_fit.xtc
 
 
 Check our modified trajectory
@@ -69,7 +69,7 @@ Check our modified trajectory
 
 Visualize in VMD_::
 
- vmd ../posres/posres.pdb md_fit.xtc
+  vmd ../posres/posres.pdb md_fit.xtc
 
 
 

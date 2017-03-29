@@ -17,6 +17,9 @@ avoid overwriting files or using wrong files.
 Create working directories
 ==========================
 
+It is recommended that the following directory structure be used, as the
+tutorial steps through them sequentially::
+
      coord/
      top/
      solvation/
@@ -25,8 +28,7 @@ Create working directories
      MD/
      analysis/
 
-It is recommended that this structure be used since the tutorial works through
-these directories in sequence. Create these directories using::
+Create these directories using::
 
      mkdir top solvation emin posres MD analysis
 
@@ -63,19 +65,42 @@ these directories in sequence. Create these directories using::
   but, in practice, some sort of ordered directory hierarchy will facilitate
   reproducibility, improve efficiency, and maintain your sanity.
 
-
 .. Note::
 
-   The command snippets in this tutorial assume the directory layout given
-   above as the workflow depends on each step's being carried out
-   *inside the appropriate directory*. In particular, *relative* paths are used
-   to access files from previous steps. It should be clear from context
-   in which directory the commands are to be executed. If you get a
-   ``File input/output error`` from :program:`grompp` (or any of the
-   other commands), first check that you are able to see the file by just
-   doing a ``ls ../path/to/file`` from where you are in the file system.
-   If you can't see the file then check (1) that you are in the correct
-   directory, (2) that you have created the file in a previous step.
+    The command snippets in this tutorial assume the directory layout given
+    above as the workflow depends on each step's being carried out
+    *inside the appropriate directory*. In particular, *relative* paths are used
+    to access files from previous steps. It should be clear from context
+    in which directory the commands are to be executed. If you get a
+    ``File input/output error`` from :program:`grompp` (or any of the
+    other commands), first check that you are able to see the file by just
+    doing a ``ls ../path/to/file`` from where you are in the file system.
+    If you can't see the file then check (1) that you are in the correct
+    directory, (2) that you have created the file in a previous step.
+
+
+Obtain starting structure
+=========================
+
+.. Note:: The starting structure :file:`coord/4ake_a.pdb` has been
+          provided as part of the tutorial package, so these instructions are
+          optional for this tutorial. However, these steps provide an idea of
+          what may be required in obtaining a suitable starting structure for
+          MD simulation.
+
+1. Download 4AKE_ the Protein Data Bank (PDB) through the web interface
+2. Create a new PDB file with just chain A
+
+   Modify the downloaded PDB file. For a relatively simple
+   protein like AdK, one can just open the PDB file in a text editor and remove
+   all the lines that are not needed.(For more complex situations, molecular
+   modeling software can be used.)
+
+  - Remove all comment lines (but keep TITLE, HEADER)
+  - Remove all crystal waters (HOH) [#crystalwaters]_
+  - Remove all chain B ATOM records.
+  - Save as :file:`coord/4ake_a.pdb`.
+
 
 
 .. _`AdKTutorial.tar.bz2`:

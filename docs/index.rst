@@ -22,8 +22,7 @@ Objective
 
 Perform an all-atom molecular dynamics (MD) simulation—using the Gromacs_
 MD package—of the apo enzyme adenylate kinase (AdK) in its open conformation in
-a physiologically realistic environment (100 mM NaCl solution at
-:math:`T = 300` K and :math:`P = 1` bar), and carry out a basic analysis of its
+a physiologically realistic environment, and carry out a basic analysis of its
 structural properties in equilibrium.
 
 

@@ -27,8 +27,7 @@ Objective
 
 Perform an all-atom molecular dynamics (MD) simulation—using the Gromacs_
 MD package—of the apo enzyme adenylate kinase (AdK) in its open conformation in
-a physiologically realistic environment (100 mM NaCl solution at
-:math:`T = 300` K and :math:`P = 1` bar), and carry out a basic analysis of its
+a physiologically realistic environment, and carry out a basic analysis of its
 structural properties in equilibrium.
 
 
@@ -36,12 +35,12 @@ Overview of workflow
 ====================
 
 For this tutorial we'll use Gromacs_ (version 5.1.3) to set up the system, run
-the simulation, and perform analysis. The overall work flow contains the
+the simulation, and perform analysis. The overall workflow consists of the
 following steps:
 
-  1. Download tutorial files and organize the work space
+  1. Download tutorial files and set up working directories
 
-  2. Setup
+  2. System preparation
 
      - Obtain structure 4AKE from PDB_, select chain A
 

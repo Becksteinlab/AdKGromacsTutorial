@@ -11,8 +11,8 @@ We first perform a short MD simulation with harmonic position
 restraints on the heavy protein atoms. This allows the solvent to
 equilibrate around the protein without disturbing the protein
 structure. In addition, we use "weak coupling" temperature and
-pressure coupling algorithms to obtain the desired temperatue and
-pressure.
+pressure coupling algorithms to obtain the desired temperatue,
+:math:`T = 300` K, and pressure, :math:`P = 1` bar.
 
 
 Telling Gromacs what it will do (again)
@@ -30,7 +30,7 @@ system <energy-minimization>` as the starting structure::
 
   cd ../posres
   cp ../templates/posres.mdp .
-  grompp -f posres.mdp -o posres.tpr -p ../top/4ake.top -c ../emin/em.pdb -maxwarn 2
+  gmx grompp -f posres.mdp -o posres.tpr -p ../top/4ake.top -c ../emin/em.pdb -maxwarn 2
 
 The mdp file contains cut-off settings that approximate the native
 CHARMM values (in the CHARMM program).
@@ -51,21 +51,23 @@ Performing the equilibration run
 
 Run the position restraints equilibration simulation::
 
-  mdrun -v -stepout 10 -s posres.tpr -deffnm posres -c posres.pdb
+  gmx mdrun -v -stepout 10 -s posres.tpr -deffnm posres -c posres.pdb
 
 (If this is too slow on your workstation, submit to saguaro using 8
 cores.)
 
-.. note:: Here the runtime of 10 ps is too short for real production
+.. Note:: Here the runtime of 10 ps is too short for real production
           use; typically 1 - 5 ns are used.
 
-In order to visually check your system, create trajectory with all
+.. rubric:: Generated a centered trajectory in the primary unitcell
+
+In order to visually check your system, first create trajectory with all
 molecules in the primary unitcell (``-ur compact``; see also below the
 more extensive notes on :ref:`trajectory-visualization`)::
 
-   echo "System" | trjconv -ur compact -s posres.tpr -f posres.xtc -pbc mol -o posres_ur.xtc
+   echo "System" | gmx trjconv -ur compact -s posres.tpr -f posres.xtc -pbc mol -o posres_ur.xtc
 
-**Check visually**::
+.. rubric:: Visually check centered trajectory in VMD_
 
    vmd ../emin/em.pdb posres_ur.xtc
 
