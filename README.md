@@ -1,16 +1,15 @@
-====================
 AdK Gromacs Tutorial
 ====================
 
-|docs|
+[![docs](https://readthedocs.org/projects/adkgromacstutorial/badge/)](https://readthedocs.org/projects/adkgromacstutorial)
 
-![AdK](/docs/figs/adk_secondary.jpg?raw=true "Adenylate Kinase")
+![AdK](/docs/figs/adk_secondary.jpg?raw=true "Adenylate Kinase" =100)
 
 The full tutorial is available online through
 [Read the Docs](http://adkgromacstutorial.readthedocs.io).
 
 Objective
-=========
+---------
 
 Perform an all-atom molecular dynamics (MD) simulation—using the [Gromacs]
 MD package—of the apo enzyme adenylate kinase (AdK) in its open conformation in
@@ -19,7 +18,7 @@ structural properties in equilibrium.
 
 
 Tutorial files
-==============
+--------------
 
 All of the necessary tutorial files can obtained by cloning the repository
 
@@ -29,7 +28,7 @@ All of the necessary tutorial files can obtained by cloning the repository
 
 
 Workflow overview
-=================
+-----------------
 
 For this tutorial we'll use [Gromacs] (version 5.1.3) to set up the system, run
 the simulation, and perform analysis. An initial structure is provided, which
@@ -65,8 +64,3 @@ the following steps:
 
 [Gromacs]: http://www.gromacs.org
 [PDB]: http://www.rcsb.org/pdb/home/home.do
-
-.. |docs| image:: https://readthedocs.org/projects/adkgromacstutorial/badge/
-    :alt: Documentation Status
-    :scale: 100%
-    :target: https://readthedocs.org/projects/adkgromacstutorial
