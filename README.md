@@ -3,7 +3,7 @@ AdK Gromacs Tutorial
 
 [![docs](https://readthedocs.org/projects/adkgromacstutorial/badge/)](https://readthedocs.org/projects/adkgromacstutorial)
 
-![AdK](/docs/figs/adk_secondary.jpg?raw=true "Adenylate Kinase" =100)
+![AdK](/docs/figs/adk_secondary.jpg?raw=true "Adenylate Kinase" | width=100)
 
 The full tutorial is available online through
 [Read the Docs](http://adkgromacstutorial.readthedocs.io).
