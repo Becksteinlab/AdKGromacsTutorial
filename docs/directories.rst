@@ -13,9 +13,9 @@ consists of multiple and rather different steps. It is useful to
 perform these different steps in separate directories in order to
 avoid overwriting files or using wrong files.
 
-**Directory layout**
 
-  For this tutorial the suggested directory layout is the following::
+Create working directories
+==========================
 
      coord/
      top/
@@ -25,9 +25,13 @@ avoid overwriting files or using wrong files.
      MD/
      analysis/
 
-  You will work through these directories in sequence.
+It is recommended that this structure be used since the tutorial works through
+these directories in sequence. Create these directories using::
 
-.. rubric:: Short description of the directories
+     mkdir top solvation emin posres MD analysis
+
+
+.. rubric:: Description of directories
 
 :file:`coord`
   original PDB (structural) files
@@ -55,20 +59,20 @@ avoid overwriting files or using wrong files.
      ...
 
   The subdirectories depend on the specific analysis tasks that you
-  want to carry out. The above directory layout is only a suggestion
-  but in practice some sort of ordered directory hierarchy has proven
-  very useful.
+  want to carry out. The above directory layout is only a suggestion,
+  but, in practice, some sort of ordered directory hierarchy will facilitate
+  reproducibility, improve efficiency, and maintain your sanity.
 
 
-.. Note ::
+.. Note::
 
-   The command snippets in this tutorial assume the above directory layout.
-   The workflow is such that each step is carried out
-   *inside the appropriate directory* and *relative* paths are used to
-   access files from previous steps. It should be clear from the context
+   The command snippets in this tutorial assume the directory layout given
+   above as the workflow depends on each step's being carried out
+   *inside the appropriate directory*. In particular, *relative* paths are used
+   to access files from previous steps. It should be clear from context
    in which directory the commands are to be executed. If you get a
    ``File input/output error`` from :program:`grompp` (or any of the
-   other commands) then check that you are able to see the file by just
+   other commands), first check that you are able to see the file by just
    doing a ``ls ../path/to/file`` from where you are in the file system.
    If you can't see the file then check (1) that you are in the correct
    directory, (2) that you have created the file in a previous step.

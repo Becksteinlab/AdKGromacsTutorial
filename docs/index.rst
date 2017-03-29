@@ -76,7 +76,6 @@ Indices and tables
 ==================
 
 * :ref:`genindex`
-* :ref:`modindex`
 * :ref:`search`
 
 
@@ -91,7 +90,7 @@ Indices and tables
    :caption: Workflow Summary
 
    directories
-   system_prep
+   preparation
    emin
    posres
    simulation
