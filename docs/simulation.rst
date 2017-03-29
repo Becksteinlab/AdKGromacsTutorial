@@ -33,7 +33,7 @@ CPU run
 
 If your workstation has a decent number of cores or if you simply
 don't mind waiting a bit longer you can also run the simulation as
-usual::
+usual with ::
 
   gmx mdrun -v -stepout 10 -s md.tpr -deffnm md -cpi
 
@@ -56,7 +56,7 @@ GPU run
 We can also try utilizing the GPU(s) available on the workstation. We use
 a modified MDP file that contains settings compatible with GPU-based
 Gromacs simulations to generate a new TPR file, which is used to perform
-the simulation.
+the simulation::
 
   gmx grompp -f mdgpu.mdp -p ../top/4ake.top -c ../posres/posres.pdb -o mdgpu.tpr -maxwarn 3
   gmx mdrun -v -stepout 10 -s mdgpu.tpr -deffnm mdgpu -cpi
