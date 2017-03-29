@@ -16,6 +16,11 @@ AdKGromacsTutorial
 ..   Adenylate Kinase (AdK). Secondary structure elements are colored
 ..   (magenta: α-helices, yellow: β-sheets).
 
+You can get all tutorial files by cloning this repository::
+
+  git clone https://github.com/Becksteinlab/AdKGromacsTutorial.git
+  cd AdKGromacsTutorial
+
 
 Objective
 =========
@@ -31,10 +36,9 @@ Workflow overview
 
 For this tutorial we'll use Gromacs_ (version 5.1.3) to set up the system, run
 the simulation, and perform analysis. An initial structure is provided, which
-can be found in the :file:`tutorial/coord` directory, as well as the MDP files
-that are necessary for input to Gromacs in :file:`tutorial/templates`. The
-overall workflow consists of the following steps:
-
+can be found in the :file:`tutorial/templates` directory, as well as the MDP
+files that are necessary for input to Gromacs. The overall workflow consists of
+the following steps:
 
 .. toctree::
    :maxdepth: 2

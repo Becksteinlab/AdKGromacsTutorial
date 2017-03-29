@@ -36,35 +36,23 @@ Workflow overview
 
 For this tutorial we'll use Gromacs_ (version 5.1.3) to set up the system, run
 the simulation, and perform analysis. An initial structure is provided, which
-can be found in the :file:`tutorial/coord` directory, as well as the MDP files
-that are necessary for input to Gromacs in :file:`tutorial/templates`. The
-overall workflow consists of the following steps:
+can be found in the :file:`tutorial/templates` directory, as well as the MDP
+files that are necessary for input to Gromacs. The overall workflow consists of
+the following steps:
 
 1. Download tutorial files and set up working directories
-
    - Obtain structure 4AKE from PDB_
-
    - Generate a stripped PDB file containing only chain A and no crystal waters
-
 2. Solvate the protein system
-
    - Generate topology using default protonation states
-
    - Solvate in water in simulation cell (rhombic dodecahedron)
-
    - Add NaCl ions to neutralize and obtain final physiological concentration
      of 100 mM
-
 3. Perform energy minimization
-
 4. Perform position-restrained equilibration
-
 5. Run production MD in the NPT ensemble
-
 6. Visualize the trajectory
-
    - Center the protein in the box (periodic boundary conditions)
-
    - RMS-fit the protein in each snapshot to the first snapshot
 
 
