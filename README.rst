@@ -10,7 +10,7 @@ AdK Gromacs Tutorial
 
 |docs|
 
-.. image:: /docs/figs/adk_secondary.*
+.. image:: docs/figs/adk_secondary.*
    :width: 30%
    :alt: Adenylate Kinase (AdK)
    :align: right
@@ -19,7 +19,7 @@ AdK Gromacs Tutorial
 ..   (magenta: α-helices, yellow: β-sheets).
 
 The full tutorial is available online through
-`Read the Docs<http://adkgromacstutorial.readthedocs.io>`_.
+`Read the Docs<http://adkgromacstutorial.readthedocs.io>`__.
 
 Objective
 =========
@@ -33,8 +33,7 @@ structural properties in equilibrium.
 Tutorial files
 ==============
 
-All of the tutorial files can be found on GitHub and can be obtained by cloning
-the repository::
+All of the necessary tutorial files can obtained by cloning the repository::
 
   git clone https://github.com/Becksteinlab/AdKGromacsTutorial.git
 
@@ -77,7 +76,7 @@ the following steps:
 .. _Gromacs: http://www.gromacs.org
 .. _PDB: http://www.rcsb.org/pdb/home/home.do
 
-.. |docs| image:: https://adkgromacstutorial.readthedocs.io/en/latest/?badge=latest
+.. |docs| image:: https://readthedocs.org/projects/adkgromacstutorialbadge/?version=master
     :alt: Documentation Status
     :scale: 100%
     :target: https://readthedocs.org/projects/adkgromacstutorial

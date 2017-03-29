@@ -29,8 +29,8 @@ structural properties in equilibrium.
 Tutorial files
 ==============
 
-All of the tutorial files can be found on GitHub and can be obtained by cloning
-the repository::
+All of the necessary tutorial files can be found on GitHub and can be obtained
+by cloning the repository::
 
   git clone https://github.com/Becksteinlab/AdKGromacsTutorial.git
 
