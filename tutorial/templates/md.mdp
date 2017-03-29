@@ -1,0 +1,93 @@
+; Gromacs 5.1.3 mdp file for CHARMM27 in the NPT ensemble
+; - suitable for C27 lipids
+; - uses Verlet scheme (fast CHARMM TIP3P water and GPU enabled)
+; See http://becksteinlab.physics.asu.edu/wiki/CHARMM27
+
+#################################### INPUT ####################################
+include                = -I. -I.. -I../top
+
+################################# INTEGRATOR ##################################
+integrator             = md             ; Leap-frog integration
+tinit                  = 0.0            ; Initial time (ps)
+dt                     = 0.002          ; Timestep (ps)
+nsteps                 = 550000000      ; Simulation duration (timesteps)
+
+nstcomm                = 1000               ; Center of mass motion removal interval (timesteps)
+comm-mode              = linear             ; Center of mass motion removal
+comm-grps              = PROT MEMB SOL_ION  ; group(s) for center of mass motion removal
+
+################################### OUTPUT ####################################
+nstlog                 = 5000           ; Log output interval (timesteps)
+nstxout                = 50000          ; Trajectory output interval (timesteps)
+nstvout                = 50000          ; Velocity output interval (timesteps)
+nstfout                = 50000          ; Force output interval (timesteps)
+nstcalcenergy          = 100            ; Energy calculation interval (timesteps)
+nstenergy              = 500            ; Energy output interval (timesteps)
+
+nstxout-compressed     = 500            ; XTC trajectory output interval (timesteps)
+compressed-x-precision = 1000           ; XTC trajectory output precision
+
+;energygrp_table       =                           ; Separate tables b/w energy group pairs
+;energygrps            = __main__ __environment__  ; Selection of energy groups
+
+########################### NONBONDED INTERACTIONS ############################
+cutoff-scheme          = Verlet         ; Method of managing neighbor lists
+nstlist                = 40             ; Update neighbor list every 20 steps
+ns_type                = grid           ; Neighbor-searching algorithm (simple or grid)
+pbc                    = xyz            ; Periodic boundary conditions on
+periodic_molecules     = no             ; Do not treat molecules as periodic
+
+coulombtype            = PME-switch             ; Calculate coulomb interactions using PME
+;coulomb-modifier       = Potential-shift-Verlet ; shift so Coulomb potential is zero at cutoff
+rcoulomb               = 1.2                    ; Coulomb cutoff (nm)
+rcoulomb-switch        = 0                      ; No Coulomb switching
+epsilon_r              = 1                      ; relative dielectric constant
+epsilon_rf             = 1                      ; relative dielectric constant for reaction field
+
+vdwtype                = Switch         ; Calculate van der Waals interactions using cutoff
+;vdw-modifier           = Force-switch   ; Use Van der Waals force switching
+rvdw-switch            = 1.0            ; Van der Waals force switching (nm)
+rvdw                   = 1.2            ; Van der Waals cutoff (nm)
+rlist                  = 1.4            ; Neighbor list cutoff (nm) – ? (1.4)
+
+DispCorr               = EnerPres       ; Yes for homogeneous liquids
+
+############################### PME PARAMETERS ################################
+pme_order              = 4              ; PME interp order (4 for cubic) – Piggot
+ewald_rtol             = 1E-05          ; Relative strength of Ewald-shifted direct pot. @ rcoulomb
+ewald_geometry         = 3d             ; Ewald sum in all 3 dimensions
+epsilon_surface        = 0              ; Turn off (0) dipole correct. to 3D Ewald sum
+
+fourierspacing         = 0.12           ; Lower bound on wavenumber (nm) – Piggot (0.12)
+fourier-nx             = 0              ; 0 to use fourierspacing
+fourier-ny             = 0              ; 0 to use fourierspacing
+fourier-nz             = 0              ; 0 to use fourierspacing
+
+################################## ENSEMBLE ###################################
+tcoupl                 = nose-hoover         ; Nose-Hoover thermostat (gives canonical ensemble)
+nsttcouple             = -1                  ; -1 (default) sets to nstlist for nstlist > 0
+tc_grps                = protein non-Protein ; Thermostat coupling groups (default or in index file)
+tau-t                  = 0.5     0.5         ; Thermostat coupling constant (ps) – ? (0.5)
+ref-t                  = 300     300         ; Reference temperature (K)
+
+pcoupl                 = Parrinello-Rahman   ; Parrinello-Rahman barostat
+pcoupltype             = isotropic           ; Pressure coupling type
+nstpcouple             = -1                  ; -1 (default) sets to nstlist for nstlist > 0
+tau-p                  = 2.5     2.5         ; Barostat coupling constant (ps) – Piggot (5.0)
+compressibility        = 4.5E-5  4.5E-5      ; Use 4.5E-5 for water @ 1 atm/300 K
+ref-p                  = 1.0     1.0         ; Reference pressure (bar)
+refcoord-scaling       = com                 ; ref coords scaled w/ scaling matrix of p coupl
+
+##################### GENERATE VELOCITIES FOR STARTUP RUN #####################
+gen-vel                = yes
+gen-temp               = 310
+gen-seed               = -1
+
+########################### CONSTRAINTS AND BONDS #############################
+constraints            = h-bonds       ; Convert the bonds with H-atoms to constraints
+constraint_algorithm   = LINCS         ; LINear Constraint Solver (faster + more stable than SHAKE)
+continuation           = no            ; if no, apply constraints to start config. & reset shells
+lincs-order            = 4             ; Highest order in expansion of constraint coupling matrix
+lincs-iter             = 1             ; Number iterations to correct rotational lengthening (LINCS)
+
+;disre                  = no            ; simple for runs w/ dist. restr.
