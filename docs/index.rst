@@ -25,21 +25,6 @@ solution at :math:`T = 300` K and :math:`P = 1` bar). Carry out a basic analysis
 of its structural properties in equilibrium.
 
 
-Contents:
-
-.. rubric:: Workflow summary
-.. toctree::
-   :maxdepth: 1
-   :numbered:
-
-   directory_organization
-   system_setup
-   energy_minimization
-   position_restraints_MD
-   equilibrium_MD
-   trajectory_visualization
-
-
 Overview of workflow
 --------------------
 For this tutorial we'll use Gromacs_ (version 5.1.3) to set up the system, run
@@ -94,3 +79,18 @@ Indices and tables
 
 .. _Gromacs: http://www.gromacs.org
 .. _PDB: http://www.rcsb.org/pdb/home/home.do
+
+
+--------------------------------------------------------------------------------
+
+.. toctree::
+   :maxdepth: 1
+   :caption: Workflow Summary
+   :numbered:
+
+   directory_organization
+   system_setup
+   energy_minimization
+   position_restraints_MD
+   equilibrium_MD
+   trajectory_visualization

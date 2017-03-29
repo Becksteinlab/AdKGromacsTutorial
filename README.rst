@@ -29,18 +29,6 @@ its open conformation in a physiologically realistic environment (100 mM NaCl
 solution at :math:`T = 300` K and :math:`P = 1` bar). Carry out a basic analysis
 of its structural properties in equilibrium.
 
-.. toctree::
-   :maxdepth: 1
-   :caption: Workflow Summary
-   :numbered:
-
-   directory_organization
-   system_setup
-   energy_minimization
-   position_restraints_MD
-   equilibrium_MD
-   trajectory_visualization
-
 
 Overview of workflow
 --------------------
