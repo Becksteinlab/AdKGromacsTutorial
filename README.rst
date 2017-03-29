@@ -10,13 +10,7 @@ AdK Gromacs Tutorial
 
 |docs|
 
-.. image:: docs/figs/adk_secondary.*
-   :width: 30%
-   :alt: Adenylate Kinase (AdK)
-   :align: right
-
-..   Adenylate Kinase (AdK). Secondary structure elements are colored
-..   (magenta: α-helices, yellow: β-sheets).
+[AdK](docs/figs/adk_secondary.jpg)
 
 The full tutorial is available online through
 `Read the Docs<http://adkgromacstutorial.readthedocs.io>`__.
