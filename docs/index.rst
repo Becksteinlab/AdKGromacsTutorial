@@ -33,7 +33,6 @@ All of the tutorial files can be found on GitHub and can be obtained by cloning
 the repository::
 
   git clone https://github.com/Becksteinlab/AdKGromacsTutorial.git
-  cd AdKGromacsTutorial
 
 
 Workflow overview

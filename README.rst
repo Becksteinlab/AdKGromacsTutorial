@@ -37,7 +37,6 @@ All of the tutorial files can be found on GitHub and can be obtained by cloning
 the repository::
 
   git clone https://github.com/Becksteinlab/AdKGromacsTutorial.git
-  cd AdKGromacsTutorial
 
 
 Workflow overview
@@ -50,18 +49,28 @@ files that are necessary for input to Gromacs. The overall workflow consists of
 the following steps:
 
 1. Download tutorial files and set up working directories
+
    - Obtain structure 4AKE from PDB_
    - Generate a stripped PDB file containing only chain A and no crystal waters
+
 2. Solvate the protein system
+
    - Generate topology using default protonation states
+
    - Solvate in water in simulation cell (rhombic dodecahedron)
-   - Add NaCl ions to neutralize and obtain final physiological concentration
-     of 100 mM
+
+   - Ionize system with NaCl to neutralize and obtain physiological concentration
+
 3. Perform energy minimization
+
 4. Perform position-restrained equilibration
+
 5. Run production MD in the NPT ensemble
+
 6. Visualize the trajectory
-   - Center the protein in the box (periodic boundary conditions)
+
+   - Center the protein in a box with primitive unitcell representation (periodic boundary conditions)
+
    - RMS-fit the protein in each snapshot to the first snapshot
 
 
