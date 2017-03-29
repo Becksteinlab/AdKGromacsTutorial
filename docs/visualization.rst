@@ -19,7 +19,7 @@ particular analysis task well (see the `Gromacs manual`_ and the
 `Gromacs documentation`_).
 
 
-Keeping our protein in one piece
+Keeping the protein in one piece
 ================================
 
 If you just look at the output trajectory :file:`md.xtc` in VMD_ then

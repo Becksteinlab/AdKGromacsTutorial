@@ -35,14 +35,18 @@ Workflow overview
 =================
 
 For this tutorial we'll use Gromacs_ (version 5.1.3) to set up the system, run
-the simulation, and perform analysis. The overall workflow consists of the
-following steps:
+the simulation, and perform analysis. An initial structure is provided, which
+can be found in the :file:`tutorial/coord` directory, as well as the MDP files
+that are necessary for input to Gromacs in :file:`tutorial/templates`. The
+overall workflow consists of the following steps:
 
 1. Download tutorial files and set up working directories
 
-2. Prepare the system
+   - Obtain structure 4AKE from PDB_
 
-   - Obtain structure 4AKE from PDB_, select chain A
+   - Generate a stripped PDB file containing only chain A and no crystal waters
+
+2. Solvate the protein system
 
    - Generate topology using default protonation states
 
@@ -51,29 +55,17 @@ following steps:
    - Add NaCl ions to neutralize and obtain final physiological concentration
      of 100 mM
 
-3. Perform energy minimization (:file:`tutorial/emin`)
+3. Perform energy minimization
 
-4. Perform position-restrained equilibration in the in the isobaric-isothermal
-   (NPT) ensemble (:file:`tutorial/posres`)
+4. Perform position-restrained equilibration
 
-5. Run a production MD simulation in the NPT ensemble (:file:`tutorial/MD`)
+5. Run production MD in the NPT ensemble
 
 6. Visualize the trajectory
 
    - Center the protein in the box (periodic boundary conditions)
 
    - RMS-fit the protein in each snapshot to the first snapshot
-
-This tutorial provides a starting structure for AdK, which can be found in the
-:file:`tutorial/coord` directory, as well as the necessary MDP files that are
-necessary for input to Gromacs in :file:`tutorial/templates`.
-
-
-Indices and tables
-==================
-
-* :ref:`genindex`
-* :ref:`search`
 
 
 .. _Gromacs: http://www.gromacs.org
