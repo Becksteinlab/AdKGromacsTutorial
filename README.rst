@@ -4,11 +4,13 @@
 .. αβγδΔ
 
 
-==================
-AdKGromacsTutorial
-==================
+====================
+AdK Gromacs Tutorial
+====================
 
-.. image:: /figs/adk_secondary.*
+|docs|
+
+.. image:: /docs/figs/adk_secondary.*
    :width: 30%
    :alt: Adenylate Kinase (AdK)
    :align: right
@@ -16,11 +18,8 @@ AdKGromacsTutorial
 ..   Adenylate Kinase (AdK). Secondary structure elements are colored
 ..   (magenta: α-helices, yellow: β-sheets).
 
-You can get all tutorial files by cloning this repository::
-
-  git clone https://github.com/Becksteinlab/AdKGromacsTutorial.git
-  cd AdKGromacsTutorial
-
+The full tutorial is available online through
+`Read the Docs<http://adkgromacstutorial.readthedocs.io>`_.
 
 Objective
 =========
@@ -29,6 +28,16 @@ Perform an all-atom molecular dynamics (MD) simulation—using the Gromacs_
 MD package—of the apo enzyme adenylate kinase (AdK) in its open conformation in
 a physiologically realistic environment, and carry out a basic analysis of its
 structural properties in equilibrium.
+
+
+Tutorial files
+==============
+
+All of the tutorial files can be found on GitHub and can be obtained by cloning
+the repository::
+
+  git clone https://github.com/Becksteinlab/AdKGromacsTutorial.git
+  cd AdKGromacsTutorial
 
 
 Workflow overview
@@ -58,3 +67,8 @@ the following steps:
 
 .. _Gromacs: http://www.gromacs.org
 .. _PDB: http://www.rcsb.org/pdb/home/home.do
+
+.. |docs| image:: https://adkgromacstutorial.readthedocs.io/en/latest/?badge=latest
+    :alt: Documentation Status
+    :scale: 100%
+    :target: https://readthedocs.org/projects/adkgromacstutorial
