@@ -4,8 +4,7 @@
 .. |Calpha| replace:: C\ :sub:`α`
 
 
-.. _energy-minimization:
-
+===================
 Energy minimization
 ===================
 
@@ -16,7 +15,7 @@ total potential energy.
 
 
 Telling Gromacs what it will do
--------------------------------
+===============================
 
 First, we will copy a file from the templates folder (provided in this
 tutorial) that tells Gromacs MD program *how* to do energy minimization::
@@ -39,11 +38,11 @@ input file (TPR) from the run parameter file (MDP), coordinate file
 (the solvated system with ions; PDB), and the topology (TOP)::
 
   cd ../emin
-  grompp -f em.mdp -c ../solvation/ionized.pdb -p ../top/4ake.top -o em.tpr 
+  grompp -f em.mdp -c ../solvation/ionized.pdb -p ../top/4ake.top -o em.tpr
 
 
 Performing an energy minimization run
--------------------------------------
+=====================================
 
 The energy minimization is performed with :program:`mdrun` but by
 using the appropriate ``integrator`` option in the `Run control
@@ -98,4 +97,3 @@ this information.
 
 .. _DSSP: http://swift.cmbi.ru.nl/gv/dssp/
 .. _`ATOM record of a PDB file`: http://www.wwpdb.org/documentation/format33/sect9.html#ATOM
-

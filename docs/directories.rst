@@ -3,6 +3,8 @@
 .. |kJ/mol/nm**2| replace:: kJ mol\ :sup:`-1` nm\ :sup:`-2`
 .. |Calpha| replace:: C\ :sub:`α`
 
+
+======================
 Directory organization
 ======================
 
@@ -104,4 +106,3 @@ avoid overwriting files or using wrong files.
 
 .. _DSSP: http://swift.cmbi.ru.nl/gv/dssp/
 .. _`ATOM record of a PDB file`: http://www.wwpdb.org/documentation/format33/sect9.html#ATOM
-

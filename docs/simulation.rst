@@ -3,13 +3,12 @@
 .. |kJ/mol/nm**2| replace:: kJ mol\ :sup:`-1` nm\ :sup:`-2`
 .. |Calpha| replace:: C\ :sub:`α`
 
-.. _equilibrium-MD:
-
+==============================
 Equilibrium molecular dynamics
 ==============================
 
 Setup the production run
--------------------------
+========================
 
 As usual, we must tell Gromacs what it will be doing using grompp_
 before we can perform our production simulation. Since we want to
@@ -27,38 +26,40 @@ which are known to reproduce the exact *NPT* ensemble distribution.
 
 
 Running the simulation
-----------------------
+======================
 
-**CPU run**
+CPU run
+-------
 
-  If your workstation has a decent number of cores or if you simply
-  don't mind waiting a bit longer you can also run the simulation as
-  usual::
+If your workstation has a decent number of cores or if you simply
+don't mind waiting a bit longer you can also run the simulation as
+usual::
 
-    mdrun -v -stepout 10 -s md.tpr -deffnm md -cpi
+  mdrun -v -stepout 10 -s md.tpr -deffnm md -cpi
 
-  This will automatically utilize all available cores. The :code:`-cpi`
-  flag indicates that you want Gromacs to continue from a previous
-  run. You can kill the job with :kbd:`CONTROL-C`, look at the output,
-  then continue with exactly the same command line ::
+This will automatically utilize all available cores. The :code:`-cpi`
+flag indicates that you want Gromacs to continue from a previous
+run. You can kill the job with :kbd:`CONTROL-C`, look at the output,
+then continue with exactly the same command line ::
 
-    mdrun -v -stepout 10 -s md.tpr -deffnm md -cpi
+  mdrun -v -stepout 10 -s md.tpr -deffnm md -cpi
 
-  (Try it out!). The :code:`-cpi` flag can be used on the first run
-  without harm. For a continuation to occur, Gromacs needs to find the
-  checkpoint file :file:`md.cpt` and all output files (:file:`md.xtc`,
-  :file:`md.edr`, :file:`md.log`) in the current directory.
+(Try it out!). The :code:`-cpi` flag can be used on the first run
+without harm. For a continuation to occur, Gromacs needs to find the
+checkpoint file :file:`md.cpt` and all output files (:file:`md.xtc`,
+:file:`md.edr`, :file:`md.log`) in the current directory.
 
 
-**GPU run**
+GPU run
+-------
 
-  We can also try utilizing the GPU(s) available on the workstation. We use
-  a modified MDP file that contains settings compatible with GPU-based
-  Gromacs simulations to generate a new TPR file, which is used to perform
-  the simulation.
+We can also try utilizing the GPU(s) available on the workstation. We use
+a modified MDP file that contains settings compatible with GPU-based
+Gromacs simulations to generate a new TPR file, which is used to perform
+the simulation.
 
-    grompp -f mdgpu.mdp -p ../top/4ake.top -c ../posres/posres.pdb -o mdgpu.tpr -maxwarn 3
-    mdrun -v -stepout 10 -s mdgpu.tpr -deffnm mdgpu -cpi
+  grompp -f mdgpu.mdp -p ../top/4ake.top -c ../posres/posres.pdb -o mdgpu.tpr -maxwarn 3
+  mdrun -v -stepout 10 -s mdgpu.tpr -deffnm mdgpu -cpi
 
 
 .. _`AdKTutorial.tar.bz2`:

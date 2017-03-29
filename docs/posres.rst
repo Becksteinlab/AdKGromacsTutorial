@@ -3,8 +3,7 @@
 .. |kJ/mol/nm**2| replace:: kJ mol\ :sup:`-1` nm\ :sup:`-2`
 .. |Calpha| replace:: C\ :sub:`α`
 
-.. _position-restraints:
-
+======================
 Position restraints MD
 ======================
 
@@ -17,7 +16,7 @@ pressure.
 
 
 Telling Gromacs what it will do (again)
----------------------------------------
+=======================================
 
 We must first tell Gromacs *how* to perform our equilibration run
 in the same way that we did for the energy minimization step.
@@ -48,7 +47,7 @@ supply it to :code:`grompp -n md.ndx`.
 
 
 Performing the equilibration run
---------------------------------
+================================
 
 Run the position restraints equilibration simulation::
 
@@ -115,4 +114,3 @@ show a roughly spherical unit cell (the `rhombic dodecahedron`_).)
 
 .. _DSSP: http://swift.cmbi.ru.nl/gv/dssp/
 .. _`ATOM record of a PDB file`: http://www.wwpdb.org/documentation/format33/sect9.html#ATOM
-

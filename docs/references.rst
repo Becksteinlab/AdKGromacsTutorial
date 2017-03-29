@@ -3,11 +3,10 @@
 .. |kJ/mol/nm**2| replace:: kJ mol\ :sup:`-1` nm\ :sup:`-2`
 .. |Calpha| replace:: C\ :sub:`α`
 
-.. _references:
 
+==========
 References
 ==========
-
 
 .. [Kabsch1983] Kabsch W, Sander C. Dictionary of protein secondary
    structure: pattern recognition of hydrogen-bonded and geometrical
@@ -27,6 +26,4 @@ References
    T. B. Woolf. Zipping and unzipping of adenylate kinase: Atomistic
    insights into the ensemble of open/closed
    transitions. *J. Mol. Biol.*, 394(1):160–176, 2009. doi:
-   `10.1016/j.jmb.2009.09.009 <http://dx.doi.org/10.1016/j.jmb.2009.09.009>`_. 
-
-
+   `10.1016/j.jmb.2009.09.009 <http://dx.doi.org/10.1016/j.jmb.2009.09.009>`_.

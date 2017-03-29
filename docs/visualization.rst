@@ -3,8 +3,7 @@
 .. |kJ/mol/nm**2| replace:: kJ mol\ :sup:`-1` nm\ :sup:`-2`
 .. |Calpha| replace:: C\ :sub:`α`
 
-.. _trajectory-visualization:
-
+========================
 Trajectory visualization
 ========================
 
@@ -21,7 +20,7 @@ particular analysis task well (see the `Gromacs manual`_ and the
 
 
 Keeping our protein in one piece
---------------------------------
+================================
 
 If you just look at the output trajectory :file:`md.xtc` in VMD_ then
 you will see that the protein can be split across the periodic
@@ -49,7 +48,7 @@ Center (:code:`-center`) on the *Protein* and remap all the molecules
 
 
 Pinning down a tumbling protein
--------------------------------
+===============================
 
 It is often desirable to *RMS-fit* the protein on a reference structure
 (such as the first frame in the trajectory) to remove overall translation
@@ -66,7 +65,7 @@ whole *System*::
 
 
 Check our modified trajectory
------------------------------
+=============================
 
 Visualize in VMD_::
 
@@ -111,4 +110,3 @@ Visualize in VMD_::
 .. _saguaro: http://a2c2.asu.edu/resources/saguaro/
 .. _Gromacs: http://www.gromacs.org
 .. _VMD: http://www.ks.uiuc.edu/Research/vmd/
-

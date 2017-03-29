@@ -4,6 +4,7 @@
 .. αβγδΔ
 
 
+==================
 AdKGromacsTutorial
 ==================
 
@@ -22,16 +23,18 @@ You can get all tutorial files by cloning this repository::
 
 
 Objective
----------
+=========
+
 Perform an all-atom molecular dynamics (MD) simulation—using the Gromacs_
-MD package—of the apo (without a bound ligand) enzyme adenylate kinase (AdK) in
-its open conformation in a physiologically realistic environment (100 mM NaCl
-solution at :math:`T = 300` K and :math:`P = 1` bar). Carry out a basic analysis
-of its structural properties in equilibrium.
+MD package—of the apo enzyme adenylate kinase (AdK) in its open conformation in
+a physiologically realistic environment (100 mM NaCl solution at
+:math:`T = 300` K and :math:`P = 1` bar), and carry out a basic analysis of its
+structural properties in equilibrium.
 
 
 Overview of workflow
---------------------
+====================
+
 For this tutorial we'll use Gromacs_ (version 5.1.3) to set up the system, run
 the simulation, and perform analysis. The overall work flow contains the
 following steps:

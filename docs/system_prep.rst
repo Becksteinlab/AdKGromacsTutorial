@@ -3,13 +3,13 @@
 .. |kJ/mol/nm**2| replace:: kJ mol\ :sup:`-1` nm\ :sup:`-2`
 .. |Calpha| replace:: C\ :sub:`α`
 
-.. _setup:
 
+====================================
 Setup of the solvated protein system
 ====================================
 
 Directory setup
----------------
+===============
 
 - Create directories that reflects our workflow::
 
@@ -35,7 +35,7 @@ Directory setup
     - Save as :file:`coord/4ake_a.pdb`.
 
 Generate a topology from a pdb
-------------------------------
+==============================
 
 Generate a topology file for the CHARMM27 force field together with the
 TIP3P water model with pdb2gmx_ tool::
@@ -47,8 +47,8 @@ TIP3P water model with pdb2gmx_ tool::
           neutralize the system; we need a net-neutral system)
 
 
-Solvating our system:
----------------------
+Solvating our system
+====================
 
 **Adding water**
 
