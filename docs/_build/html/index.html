@@ -6,9 +6,9 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>AdKGromacsTutorial: Simulating AdK with Gromacs &mdash; AdKGromacsTutorial 1.1 documentation</title>
+    <title>AdK Gromacs Tutorial &mdash; AdKGromacsTutorial 1.1 documentation</title>
     
-    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/nature.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     
     <script type="text/javascript">
@@ -25,10 +25,7 @@
     <script type="text/javascript" src="_static/doctools.js"></script>
     <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="top" title="AdKGromacsTutorial 1.1 documentation" href="#" />
-   
-  
-  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9">
-
+    <link rel="next" title="1. Directory organization" href="directories.html" /> 
   </head>
   <body role="document">
     <div class="related" role="navigation" aria-label="related navigation">
@@ -37,6 +34,9 @@
         <li class="right" style="margin-right: 10px">
           <a href="genindex.html" title="General Index"
              accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="directories.html" title="1. Directory organization"
+             accesskey="N">next</a> |</li>
         <li class="nav-item nav-item-0"><a href="#">AdKGromacsTutorial 1.1 documentation</a> &raquo;</li> 
       </ul>
     </div>  
@@ -46,70 +46,68 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="adkgromacstutorial-simulating-adk-with-gromacs">
-<h1>AdKGromacsTutorial: Simulating AdK with Gromacs<a class="headerlink" href="#adkgromacstutorial-simulating-adk-with-gromacs" title="Permalink to this headline">¶</a></h1>
-<a class="reference internal image-reference" href="figs/adk_secondary.*"><img alt="Adenylate Kinase (AdK)" class="align-right" src="figs/adk_secondary.*" style="width: 30%;" /></a>
+  <div class="section" id="adk-gromacs-tutorial">
+<h1>AdK Gromacs Tutorial<a class="headerlink" href="#adk-gromacs-tutorial" title="Permalink to this headline">¶</a></h1>
+<a class="reference internal image-reference" href="_images/adk_secondary.jpg"><img alt="Adenylate Kinase (AdK)" class="align-right" src="_images/adk_secondary.jpg" style="width: 30%;" /></a>
 <div class="section" id="objective">
 <h2>Objective<a class="headerlink" href="#objective" title="Permalink to this headline">¶</a></h2>
-<p>Perform aa MD simulation of the the enzyme adenylate kinase
-(AdK) in its open conformation without a ligand bound. Simulate it in
-a realistic environment (100 mM NaCl solution at <span class="math">\(T = 300\)</span> K and
-<span class="math">\(P = 1\)</span> bar) and analyze its structural properties.</p>
-<p>This tutorial progresses through the individual steps needed to set up
-and run an equilibrium MD simulation of AdK using Gromacs.</p>
-<p>Contents:</p>
-<p class="rubric">Workflow summary</p>
-<div class="toctree-wrapper compound">
-<ul class="simple">
-</ul>
+<p>Perform an all-atom molecular dynamics (MD) simulation—using the <a class="reference external" href="http://www.gromacs.org">Gromacs</a>
+MD package—of the apo enzyme adenylate kinase (AdK) in its open conformation in
+a physiologically realistic environment, and carry out a basic analysis of its
+structural properties in equilibrium.</p>
 </div>
-</div>
-<div class="section" id="overview-of-workflow">
-<h2>Overview of workflow<a class="headerlink" href="#overview-of-workflow" title="Permalink to this headline">¶</a></h2>
-<p>For this tutorial we&#8217;ll use <a class="reference external" href="http://www.gromacs.org">Gromacs</a> (version 5.1.3) to set up the system, run
-the simulation, and perform analysis. The overall work flow contains the
-following steps:</p>
-<blockquote>
-<div><ol class="arabic simple">
-<li>Download tutorial files and organize the work space</li>
-<li>Setup<ul>
-<li>Obtain structure 4AKE from <a class="reference external" href="http://www.rcsb.org/pdb/home/home.do">PDB</a>, select chain A</li>
-<li>Use default protonation states</li>
-<li>Generate topology</li>
-<li>Solvate in water in simulation cell (rhombic dodecahedron)</li>
-<li>Add NaCl ions to neutralize and obtain final physiological concentration
-of 100 mM</li>
-</ul>
-</li>
-<li>Energy minimization (EM)</li>
-<li>Position restraint equilibration of solvent (MD); <em>NPT</em> (use weak
-coupling (Berendsen) schemes)</li>
-<li>Equilibrium MD simulation (unrestrained, <em>NPT</em>, use Nose-Hoover and
-Parrinello-Rahman temperature and pressure coupling)</li>
-<li>Trajectory visualization<ul>
-<li>Center the protein in the box (periodic boundary conditions)</li>
-<li>RMS-fit the protein in each snapshot to the first snapshot</li>
-</ul>
-</li>
-</ol>
-<p>All input files are provided in the same directory as
-<code class="file docutils literal"><span class="pre">AdKTutorial.html</span></code>. Start by uncompressing the package file:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span>tar -jxvf AdKTutorial.tar.bz2
-cd AdKTutorial
+<div class="section" id="tutorial-files">
+<h2>Tutorial files<a class="headerlink" href="#tutorial-files" title="Permalink to this headline">¶</a></h2>
+<p>All of the necessary tutorial files can be found on GitHub and can be obtained
+by cloning the repository:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span>git clone https://github.com/Becksteinlab/AdKGromacsTutorial.git
 </pre></div>
 </div>
-<p>A starting structure can be found in the <code class="file docutils literal"><span class="pre">tutorial/coord</span></code> directory and
-MDP files are in <code class="file docutils literal"><span class="pre">tutorial/templates</span></code>.</p>
-</div></blockquote>
 </div>
-</div>
-<div class="section" id="indices-and-tables">
-<h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this headline">¶</a></h1>
-<ul class="simple">
-<li><a class="reference internal" href="genindex.html"><span>Index</span></a></li>
-<li><a class="reference internal" href="py-modindex.html"><span>Module Index</span></a></li>
-<li><a class="reference internal" href="search.html"><span>Search Page</span></a></li>
+<div class="section" id="workflow-overview">
+<h2>Workflow overview<a class="headerlink" href="#workflow-overview" title="Permalink to this headline">¶</a></h2>
+<p>For this tutorial we&#8217;ll use <a class="reference external" href="http://www.gromacs.org">Gromacs</a> (version 5.1.3) to set up the system, run
+the simulation, and perform analysis. An initial structure is provided, which
+can be found in the <code class="file docutils literal"><span class="pre">tutorial/templates</span></code> directory, as well as the MDP
+files that are necessary for input to Gromacs. The overall workflow consists of
+the following steps:</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="directories.html">1. Directory organization</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="directories.html#create-working-directories">1.1. Create working directories</a></li>
+<li class="toctree-l2"><a class="reference internal" href="directories.html#obtain-starting-structure">1.2. Obtain starting structure</a></li>
 </ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="preparation.html">2. Generate a solvated protein system</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="preparation.html#generate-a-topology">2.1. Generate a topology</a></li>
+<li class="toctree-l2"><a class="reference internal" href="preparation.html#solvate-the-protein">2.2. Solvate the protein</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="emin.html">3. Energy minimization</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="emin.html#set-up-and-generate-the-run-file">3.1. Set up and generate the run file</a></li>
+<li class="toctree-l2"><a class="reference internal" href="emin.html#perform-energy-minimization">3.2. Perform energy minimization</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="posres.html">4. Position-restrained equilibration</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="posres.html#set-up-and-generate-the-run-file">4.1. Set up and generate the run file</a></li>
+<li class="toctree-l2"><a class="reference internal" href="posres.html#perform-equilibration">4.2. Perform equilibration</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="simulation.html">5. Equilibrium molecular dynamics</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="simulation.html#set-up-the-production-run">5.1. Set up the production run</a></li>
+<li class="toctree-l2"><a class="reference internal" href="simulation.html#run-the-simulation">5.2. Run the simulation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="visualization.html">6. Trajectory visualization</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="visualization.html#keeping-the-protein-in-one-piece">6.1. Keeping the protein in one piece</a></li>
+<li class="toctree-l2"><a class="reference internal" href="visualization.html#pinning-down-a-tumbling-protein">6.2. Pinning down a tumbling protein</a></li>
+<li class="toctree-l2"><a class="reference internal" href="visualization.html#check-our-modified-trajectory">6.3. Check our modified trajectory</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="analysis.html">7. Analysis</a></li>
+</ul>
+</div>
+</div>
 </div>
 
 
@@ -120,14 +118,17 @@ MDP files are in <code class="file docutils literal"><span class="pre">tutorial/
         <div class="sphinxsidebarwrapper">
   <h3><a href="#">Table Of Contents</a></h3>
   <ul>
-<li><a class="reference internal" href="#">AdKGromacsTutorial: Simulating AdK with Gromacs</a><ul>
+<li><a class="reference internal" href="#">AdK Gromacs Tutorial</a><ul>
 <li><a class="reference internal" href="#objective">Objective</a></li>
-<li><a class="reference internal" href="#overview-of-workflow">Overview of workflow</a></li>
+<li><a class="reference internal" href="#tutorial-files">Tutorial files</a></li>
+<li><a class="reference internal" href="#workflow-overview">Workflow overview</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#indices-and-tables">Indices and tables</a></li>
 </ul>
 
+  <h4>Next topic</h4>
+  <p class="topless"><a href="directories.html"
+                        title="next chapter">1. Directory organization</a></p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
@@ -152,20 +153,21 @@ MDP files are in <code class="file docutils literal"><span class="pre">tutorial/
       </div>
       <div class="clearer"></div>
     </div>
-    <div class="footer">
-      &copy;2017, Sean Seyler and Oliver Beckstein.
-      
-      |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.3.1</a>
-      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.3</a>
-      
-      |
-      <a href="_sources/index.txt"
-          rel="nofollow">Page source</a></li>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="directories.html" title="1. Directory organization"
+             >next</a> |</li>
+        <li class="nav-item nav-item-0"><a href="#">AdKGromacsTutorial 1.1 documentation</a> &raquo;</li> 
+      </ul>
     </div>
-
-    
-
-    
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2017, Sean Seyler and Oliver Beckstein.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.1.
+    </div>
   </body>
 </html>
