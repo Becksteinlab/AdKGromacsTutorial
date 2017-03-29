@@ -3,7 +3,7 @@ AdK Gromacs Tutorial
 
 [![docs](https://readthedocs.org/projects/adkgromacstutorial/badge/)](https://readthedocs.org/projects/adkgromacstutorial)
 
-![AdK](/docs/figs/adk_secondary.jpg?raw=true "Adenylate Kinase" width=100)
+![AdK](/docs/figs/adk_secondary.jpg?width=200)
 
 <img src="/docs/figs/adk_secondary.jpg" alt="Adenylate Kinase" width="200">
 
