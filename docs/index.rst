@@ -4,8 +4,8 @@
 .. αβγδΔ
 
 
-AdKGromacsTutorial: Simulating AdK with Gromacs
-===============================================
+AdKGromacsTutorial
+==================
 
 .. image:: /figs/adk_secondary.*
    :width: 30%

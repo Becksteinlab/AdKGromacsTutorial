@@ -1,16 +1,11 @@
-.. AdKGromacsTutorial documentation master file, created by
-   sphinx-quickstart on Tue Mar 28 16:31:11 2017.
-   You can adapt this file completely to your liking, but it should at least
-   contain the root `toctree` directive.
-
 .. |kJ/mol/nm**2| replace:: kJ mol\ :sup:`-1` nm\ :sup:`-2`
 .. |Calpha| replace:: C\ :sub:`α`
 
 .. αβγδΔ
 
 
-AdKGromacsTutorial: Simulating AdK with Gromacs
-===============================================
+AdKGromacsTutorial
+==================
 
 .. image:: /figs/adk_secondary.*
    :width: 30%
