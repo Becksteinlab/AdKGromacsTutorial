@@ -44,17 +44,7 @@ can be found in the :file:`tutorial/templates` directory, as well as the MDP
 files that are necessary for input to Gromacs. The overall workflow consists of
 the following steps:
 
-.. toctree::
-   :maxdepth: 1
-   :numbered:
 
-   directories
-   preparation
-   emin
-   posres
-   simulation
-   visualization
-   analysis
 
 
 .. _Gromacs: http://www.gromacs.org
