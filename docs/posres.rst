@@ -71,14 +71,14 @@ more extensive notes on :ref:`trajectory-visualization`)::
 
    vmd ../emin/em.pdb posres_ur.xtc
 
-(If you don't have a :program:`vmd` command available on the command
-line then launch VMD_, load the ``emin/em.pdb`` file
-(:menuselection:`File --> New Molecule...`), highlight your molecule 1
-("em.pdb") and load the ``posres/posres_ur.xtc`` trajectory into your
-molecule 1", :menuselection:`File --> Load Data Into Molecule`. You
-should see that the first frame (from the energy minimization) looks
-as if the water is in a distorted box shape whereas all further frames
-show a roughly spherical unit cell (the `rhombic dodecahedron`_).)
+.. Note:: If you don't have a :program:`vmd` command available on the command
+          line then launch VMD_, load the ``emin/em.pdb`` file
+          (:menuselection:`File --> New Molecule...`), highlight your molecule 1
+          ("em.pdb") and load the ``posres/posres_ur.xtc`` trajectory into your
+          molecule 1", :menuselection:`File --> Load Data Into Molecule`. You
+          should see that the first frame (from the energy minimization) looks
+          as if the water is in a distorted box shape whereas all further frames
+          show a roughly spherical unit cell (the `rhombic dodecahedron`_).
 
 
 .. _VMD: http://www.ks.uiuc.edu/Research/vmd/

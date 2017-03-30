@@ -64,7 +64,7 @@ run can be around 3–5 times faster than a CPU-only run on the same machine. Ta
 a look at the Gromacs page on `GPU acceleration`_ for more information.
 
 
-.. _GPU acceleration: http://www.gromacs.org/GPU_acceleration
+.. _`GPU acceleration`: http://www.gromacs.org/GPU_acceleration
 
 .. _`AdKTutorial.tar.bz2`:
     http://becksteinlab.physics.asu.edu/pages/courses/2013/SimBioNano/13/AdKTutorial.tar.bz2

@@ -12,10 +12,12 @@ Analysis
 
 For analyzing MD trajectories in many common formats (including the XTC, TRR,
 TNG, etc. used by Gromacs) using Python, have a look at the `MDAnalysis`_
-Python library—the `MDAnalysis Tutorial`_ is a great place to start!
+Python library
+
+.. See also:: the `MDAnalysis Tutorial`_ is a great place to start!
 
 .. _MDAnalysis: http://www.mdanalysis.org/
-.. _MDAnalysis Tutorial: http://www.mdanalysis.org/MDAnalysisTutorial/
+.. _`MDAnalysis Tutorial`: http://www.mdanalysis.org/MDAnalysisTutorial/
 
 .. _`AdKTutorial.tar.bz2`:
     http://becksteinlab.physics.asu.edu/pages/courses/2013/SimBioNano/13/AdKTutorial.tar.bz2
