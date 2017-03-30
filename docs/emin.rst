@@ -22,13 +22,11 @@ tutorial) that tells Gromacs MD program *how* to do energy minimization::
 
   cp ../templates/em.mdp .
 
-.. Note:: The MDP file :file:`em.mdp` is provided in
-          :file:`templates/em.mdp`: copy it to the :file:`emin/`
-          directory. You should have a look at it and modify it according to
-          your needs. The individual parameters are explained under `mdp
-          options`_.
+.. Tip:: Have a look at the MDP file to get a feel for what kinds of settings
+         can be adjusted to suit one's needs. Individual parameters are
+         explained in more detail in `mdp options`_.
 
-This ``.mdp`` file contains the settings that dictate the nature of the
+The ``*.mdp`` file contains the settings that dictate the nature of the
 simulation. For energy minimization, we will use the simple *steepest
 descent* minimizer (``integrator = steep`` in ``em.mdp``, which runs in
 parallel). Use grompp_ (the GROMacs PreProcessor) to generate the run
@@ -54,14 +52,14 @@ be < 1e+03 |kJ/mol/nm**2| (but typically anything below 1e+05
 |kJ/mol/nm**2| works). See the screen output or the :file:`em.log` file for
 this information.
 
-.. .. Tip:: The final frame of minimization (the structure in :file:`em.pdb`) can
-..          be used as the input structure for further minimization runs. It is
-..          common to do an initial energy minimization using the efficient
-..          steepest descent method and further minimization with a more
-..          sophisticated method such as the *conjugate gradient* algorithm
-..          (``integrator = cg``) or the Newton-like
-..          *Broyden-Fletcher-Goldfarb-Shanno* (``integrator = l-bfgs``) minimizer.
-..          For details, see `Run control options in the MDP file`_.
+.. Tip:: The final frame of minimization (the structure in :file:`em.pdb`) can
+         be used as the input structure for further minimization runs. It is
+         common to do an initial energy minimization using the efficient
+         steepest descent method and further minimization with a more
+         sophisticated method such as the *conjugate gradient* algorithm
+         (``integrator = cg``) or the Newton-like
+         *Broyden-Fletcher-Goldfarb-Shanno* (``integrator = l-bfgs``) minimizer.
+         For details, see `Run control options in the MDP file`_.
 
 
 .. _`AdKTutorial.tar.bz2`:

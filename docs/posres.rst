@@ -57,7 +57,7 @@ Run the position restraints equilibration simulation::
 cores.)
 
 .. Attention:: Here the runtime of 10 ps is too short for real production
-               use; typically 1–5 ns are used.
+               use; typically 1 to 5 ns are used.
 
 .. rubric:: Generate a centered trajectory in the primary unitcell
 

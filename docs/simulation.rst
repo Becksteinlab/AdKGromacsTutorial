@@ -60,7 +60,7 @@ the simulation::
   gmx mdrun -v -stepout 10 -s mdgpu.tpr -deffnm mdgpu -cpi
 
 On machines equipped with a well-matched CPU and GPU, a GPU-accelerated Gromacs
-run can be around 3–5 times faster than a CPU-only run on the same machine. Take
+run can be around 3 to 5 times faster than a CPU-only run on the same machine. Take
 a look at the Gromacs page on `GPU acceleration`_ for more information.
 
 
