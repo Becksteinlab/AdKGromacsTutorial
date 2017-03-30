@@ -45,7 +45,7 @@ files that are necessary for input to Gromacs. The overall workflow consists of
 the following steps:
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 1
    :numbered:
 
    directories
