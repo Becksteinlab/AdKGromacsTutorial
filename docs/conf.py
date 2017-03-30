@@ -95,7 +95,7 @@ exclude_patterns = ['_build']
 #show_authors = False
 
 # The name of the default language in which source code will be highlighted
-highlight_language = 'bash'
+# highlight_language = 'bash'
 
 # The name of the Pygments (syntax highlighting) style to use.
 pygments_style = 'sphinx'
