@@ -1,8 +1,5 @@
 .. -*- encoding: utf-8 -*-
 
-.. |kJ/mol/nm**2| replace:: kJ mol\ :sup:`-1` nm\ :sup:`-2`
-.. |Calpha| replace:: C\ :sub:`α`
-
 ========================
 Trajectory visualization
 ========================
@@ -31,15 +28,12 @@ more convenient unitcell representation.
 
 We will use the trjconv_ tool in Gromacs to center and remap our system.
 
-.. Note::
-
-   :program:`trjconv` asks the user a number of
-   questions that depend on the chosen options. In the command line
-   snippets below, this user input is directly fed to the standard input
-   of :program:`trjconv` with the :kbd:`printf TEXT | trjconv` "pipe"
-   construct. In order to better understand the command, run it
-   interactively without the pipe construct and manually provide the
-   required information.
+.. Tip:: :program:`trjconv` prompts the user with a number of questions that
+         depend on the selected options. In the command line snippets below, the
+         user input is directly fed to the standard input of :program:`trjconv`
+         with the :kbd:`printf TEXT | trjconv` "pipe" construct. In order to
+         better understand the command, run it interactively without the pipe
+         construct and manually provide the required information.
 
 Center (:code:`-center`) on the *Protein* and remap all the molecules
 (:code:`-pbc mol`) of the whole *System*::

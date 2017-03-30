@@ -40,10 +40,10 @@ quickly equilibrate. The protein and the solvent (water and ions) are
 coupled as separate groups. Gromacs provides a range of groups
 automatically (run :samp:`make_ndx -f {TPR}` to see them) and we use
 the groups ``Protein`` and ``non-Protein`` (these particularly groups
-work roughly since Gromacs 4.5.3). If the standard groups do not work
-then you will have to create the groups yourself using :samp:`make_ndx
+work since roughly Gromacs 4.5.3). If the standard groups do not work
+then you will have to create the groups yourself using :samp:`gmx make_ndx
 -f {TPR} -o md.ndx` (which would save them in a file :file:`md.ndx`) and
-supply it to :code:`grompp -n md.ndx`.
+supply it to :code:`gmx grompp -n md.ndx`.
 
 
 Perform equilibration
@@ -56,8 +56,8 @@ Run the position restraints equilibration simulation::
 (If this is too slow on your workstation, submit to saguaro using 8
 cores.)
 
-.. Note:: Here the runtime of 10 ps is too short for real production
-          use; typically 1 - 5 ns are used.
+.. Attention:: Here the runtime of 10 ps is too short for real production
+               use; typically 1–5 ns are used.
 
 .. rubric:: Generated a centered trajectory in the primary unitcell
 

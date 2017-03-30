@@ -65,7 +65,7 @@ Create these directories using::
   but, in practice, some sort of ordered directory hierarchy will facilitate
   reproducibility, improve efficiency, and maintain your sanity.
 
-.. Note::
+.. Important::
 
     The command snippets in this tutorial assume the directory layout given
     above as the workflow depends on each step's being carried out
@@ -83,10 +83,10 @@ Obtain starting structure
 =========================
 
 .. Note:: The starting structure :file:`coord/4ake_a.pdb` has been
-          provided as part of the tutorial package, so these instructions are
-          optional for this tutorial. However, these steps provide an idea of
-          what may be required in obtaining a suitable starting structure for
-          MD simulation.
+          provided as part of the tutorial package, so the instructions that
+          follow are optional for this tutorial. However, these steps provide an
+          idea of what may be required in obtaining a suitable starting
+          structure for MD simulation.
 
 1. Download 4AKE_ the Protein Data Bank (PDB) through the web interface
 2. Create a new PDB file with just chain A

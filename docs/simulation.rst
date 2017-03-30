@@ -28,8 +28,7 @@ which are known to reproduce the exact *NPT* ensemble distribution.
 Run the simulation
 ==================
 
-CPU run
--------
+.. rubric:: CPU run
 
 If your workstation has a decent number of cores or if you simply
 don't mind waiting a bit longer you can also run the simulation as
@@ -50,8 +49,7 @@ checkpoint file :file:`md.cpt` and all output files (:file:`md.xtc`,
 :file:`md.edr`, :file:`md.log`) in the current directory.
 
 
-GPU run
--------
+.. rubric:: GPU run
 
 We can also try utilizing the GPU(s) available on the workstation. We use
 a modified MDP file that contains settings compatible with GPU-based
@@ -60,6 +58,9 @@ the simulation::
 
   gmx grompp -f mdgpu.mdp -p ../top/4ake.top -c ../posres/posres.pdb -o mdgpu.tpr -maxwarn 3
   gmx mdrun -v -stepout 10 -s mdgpu.tpr -deffnm mdgpu -cpi
+
+On machines equipped with a well-matched CPU and GPU, a GPU-accelerated Gromacs
+run can be around 3–5 times faster than a CPU-only run on the same machine.
 
 
 .. _`AdKTutorial.tar.bz2`:

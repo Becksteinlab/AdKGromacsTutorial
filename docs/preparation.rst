@@ -20,7 +20,8 @@ TIP3P water model using the pdb2gmx_ tool::
     gmx pdb2gmx -f ../coord/4ake_a.pdb -o protein.pdb -p 4ake.top -i protein_posre.itp -water tip3p -ff charmm27
 
 .. Note:: Total charge -4.000e (in the next step we will add ions to
-          neutralize the system; we need a net-neutral system)
+          neutralize the system; we need a net-neutral system to properly
+          handle electrostatics)
 
 
 Solvate the protein
@@ -32,15 +33,15 @@ Adding water
 Create a simulation box with editconf_ and add solvent with `solvate`_::
 
   cd ../solvation
-  gmx editconf -f ../top/protein.pdb -o boxed.pdb -c -d 1.2 -bt dodecahedron
+  gmx editconf -f ../top/protein.pdb -o boxed.pdb -c -d 0.5 -bt dodecahedron
   gmx solvate -cp boxed.pdb -cs spc216 -p ../top/4ake.top -o solvated.pdb
 
-.. Note:: In order to reduce the system size and make the simulations run
-          faster we are choosing a very tight box (minimum protein-edge
-          distance 0.5 nm, ``-d 0.5``); for simulations you want to publish
-          this number should be 1.2...1.5 nm so that the electrostatic
-          interactions between copies of the protein across periodic
-          boundaries are sufficiently screened.
+.. Attention:: In order to reduce the system size and make the simulations run
+               faster we are choosing a very tight box (minimum protein-edge
+               distance 0.5 nm, ``-d 0.5``); for simulations you want to publish
+               this number should be 1.2...1.5 nm so that the electrostatic
+               interactions between copies of the protein across periodic
+               boundaries are sufficiently screened.
 
 solvate_ updates the number of solvent molecules ("SOL") in the
 topology file (check the ``[ system ]`` section in
