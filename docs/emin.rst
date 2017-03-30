@@ -54,11 +54,11 @@ be < 1e+03 |kJ/mol/nm**2| (but typically anything below 1e+05
 |kJ/mol/nm**2| works). See the screen output or the :file:`em.log` file for
 this information.
 
-.. Tip:: The final frame of minimization (the structure in :file"`em.pdb`) can
+.. Tip:: The final frame of minimization (the structure in :file:`em.pdb`) can
          be used as the input structure for further minimization runs. It is
          common to do an initial energy minimization using the efficient
          steepest descent method and further minimization with a more
-         sophisticated method such as *conjugate gradients*
+         sophisticated method such as the *conjugate gradient* algorithm
          (``integrator = cg``) or the Newton-like
          *Broyden-Fletcher-Goldfarb-Shanno* (``integrator = l-bfgs``) minimizer.
          For details, see `Run control options in the MDP file`_.
