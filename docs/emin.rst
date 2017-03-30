@@ -58,10 +58,10 @@ this information.
          be used as the input structure for further minimization runs. It is
          common to do an initial energy minimization using the efficient
          steepest descent method and further minimization with a more
-         sophisticated method such as *conjugate gradients* (``integrator =
-         cg``) or the Newton-like *Broyden-Fletcher-Goldfarb-Shanno*
-         (``integrator = l-bfgs``) minimizer. For details see `Run control
-         options in the MDP file`_.
+         sophisticated method such as *conjugate gradients*
+         (``integrator = cg``) or the Newton-like
+         *Broyden-Fletcher-Goldfarb-Shanno* (``integrator = l-bfgs``) minimizer.
+         For details, see `Run control options in the MDP file`_.
 
 
 .. _`AdKTutorial.tar.bz2`:
