@@ -67,7 +67,7 @@ release = '1.1'
 #
 # This is also used if you do content translation via gettext catalogs.
 # Usually you set "language" from the command line for these cases.
-language = 'bash'
+language = None
 
 # There are two options for replacing |today|: either, you set today to some
 # non-false value, then it is used:
@@ -93,6 +93,9 @@ exclude_patterns = ['_build']
 # If true, sectionauthor and moduleauthor directives will be shown in the
 # output. They are ignored by default.
 #show_authors = False
+
+# The name of the default language in which source code will be highlighted
+highlight_language = 'bash'
 
 # The name of the Pygments (syntax highlighting) style to use.
 pygments_style = 'sphinx'
