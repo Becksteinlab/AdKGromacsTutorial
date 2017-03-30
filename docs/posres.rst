@@ -59,7 +59,7 @@ cores.)
 .. Attention:: Here the runtime of 10 ps is too short for real production
                use; typically 1–5 ns are used.
 
-.. rubric:: Generated a centered trajectory in the primary unitcell
+.. rubric:: Generate a centered trajectory in the primary unitcell
 
 In order to visually check your system, first create trajectory with all
 molecules in the primary unitcell (``-ur compact``; see also below the
