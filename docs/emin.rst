@@ -3,6 +3,7 @@
 .. |kJ/mol/nm**2| replace:: kJ mol\ :sup:`-1` nm\ :sup:`-2`
 .. |Calpha| replace:: C\ :sub:`α`
 
+.. _energy-minimization:		      
 
 ===================
 Energy minimization
@@ -29,7 +30,7 @@ tutorial) that tells Gromacs MD program *how* to do energy minimization::
 The ``*.mdp`` file contains the settings that dictate the nature of the
 simulation. For energy minimization, we will use the simple *steepest
 descent* minimizer (``integrator = steep`` in ``em.mdp``, which runs in
-parallel). Use grompp_ (the GROMacs PreProcessor) to generate the run
+parallel). Use `gmx grompp`_ (the GROMacs PreProcessor) to generate the run
 input file (TPR) from the run parameter file (MDP), coordinate file
 (the solvated system with ions; PDB), and the topology (TOP)::
 
@@ -40,7 +41,7 @@ input file (TPR) from the run parameter file (MDP), coordinate file
 Perform energy minimization
 ===========================
 
-The energy minimization is performed with :program:`mdrun` but by
+The energy minimization is performed with `gmx mdrun`_ but by
 using the appropriate ``integrator`` option in the `Run control
 options in the MDP file`_ it has been instructed to do a energy
 minimization::
@@ -62,35 +63,8 @@ this information.
          For details, see `Run control options in the MDP file`_.
 
 
-.. _`AdKTutorial.tar.bz2`:
-    http://becksteinlab.physics.asu.edu/pages/courses/2013/SimBioNano/13/AdKTutorial.tar.bz2
-.. _4AKE: http://www.rcsb.org/pdb/explore.do?structureId=4ake
-.. _pdb2gmx: http://manual.gromacs.org/current/online/pdb2gmx.html
-.. _editconf: http://manual.gromacs.org/current/online/editconf.html
-.. _genbox: http://manual.gromacs.org/current/online/genbox.html
-.. _genion: http://manual.gromacs.org/current/online/genion.html
-.. _trjconv: http://manual.gromacs.org/current/online/trjconv.html
-.. _trjcat: http://manual.gromacs.org/current/online/trjcat.html
-.. _eneconv: http://manual.gromacs.org/current/online/eneconv.html
-.. _grompp: http://manual.gromacs.org/current/online/grompp.html
-.. _mdrun: http://manual.gromacs.org/current/online/mdrun.html
-.. _`mdp options`: http://manual.gromacs.org/current/online/mdp_opt.html
-.. _`Run control options in the MDP file`: http://manual.gromacs.org/current/online/mdp_opt.html#run
-.. _`make_ndx`: http://manual.gromacs.org/current/online/make_ndx.html
-.. _`g_tune_pme`: http://manual.gromacs.org/current/online/g_tune_pme.html
-.. _gmxcheck: http://manual.gromacs.org/current/online/gmxcheck.html
-
-.. _Gromacs manual: http://manual.gromacs.org/
-.. _Gromacs documentation: http://www.gromacs.org/Documentation
-.. _`Gromacs 4.5.6 PDF`: http://www.gromacs.org/@api/deki/files/190/=manual-4.5.6.pdf
-.. _manual section: http://www.gromacs.org/Documentation/Manual
-
-.. _`g_rms`: http://manual.gromacs.org/current/online/g_rms.html
-.. _`g_rmsf`: http://manual.gromacs.org/current/online/g_rmsf.html
-.. _`g_gyrate`: http://manual.gromacs.org/current/online/g_gyrate.html
-.. _`g_dist`: http://manual.gromacs.org/current/online/g_dist.html
-.. _`g_mindist`: http://manual.gromacs.org/current/online/g_mindist.html
-.. _`do_dssp`: http://manual.gromacs.org/current/online/do_dssp.html
-
-.. _DSSP: http://swift.cmbi.ru.nl/gv/dssp/
-.. _`ATOM record of a PDB file`: http://www.wwpdb.org/documentation/format33/sect9.html#ATOM
+.. _`mdp options`: http://manual.gromacs.org/online/mdp_opt.html
+.. _`Run control options in the MDP file`:
+   http://manual.gromacs.org/online/mdp_opt.html#run
+.. _gmx grompp: http://manual.gromacs.org/programs/gmx-grompp.html
+.. _gmx mdrun: http://manual.gromacs.org/programs/gmx-mdrun.html

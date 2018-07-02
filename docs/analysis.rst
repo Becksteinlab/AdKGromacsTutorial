@@ -25,27 +25,27 @@ documentation`_ to find out what else is available.
 
 .. rubric:: Selection of Gromacs analysis tools
 
-`gmx energy <g_energy>`_
+`gmx energy`_
     basic thermodynamic properties of the system
 
-`gmx rms <g_rms>`_
+`gmx rms`_
     calculate the root mean square deviation from a reference structure
 
-`gmx rmsf <g_rmsf>`_
+`gmx rmsf`_
     calculate the per-residue root mean square fluctuations
 
-`gmx gyrate <g_gyrate>`_
+`gmx gyrate`_
     calculate the radius of gyration
 
-`gmx mindist <g_mindist>`_
+`gmx mindist`_
     calculate the distance between atoms or groups of atoms (make a
-    index file with `make_ndx`_ to define the groups of
+    index file with `gmx make_ndx`_ to define the groups of
     interest). :program:`gmx mindist` is especially useful to find water
     molecules close to a region of interest.
 
     For AdK, look at the distance between the |Calpha| of K145 and I52.
 
-`gmx do_dssp <do_dssp>`_
+`gmx do_dssp`_
     Use the DSSP_ algorithm [Kabsch1983]_ to analyze the secondary structure
     (helices, sheets, ...). 
 
@@ -87,33 +87,35 @@ Basic analysis
 .. _`MDAnalysis Tutorial`: http://www.mdanalysis.org/MDAnalysisTutorial/
 .. _Python: https://www.python.org
 
+.. updated links (2018)
+
 .. _4AKE: http://www.rcsb.org/pdb/explore.do?structureId=4ake
-.. _pdb2gmx: http://manual.gromacs.org/current/online/pdb2gmx.html
-.. _editconf: http://manual.gromacs.org/current/online/editconf.html
-.. _genbox: http://manual.gromacs.org/current/online/genbox.html
-.. _genion: http://manual.gromacs.org/current/online/genion.html
-.. _trjconv: http://manual.gromacs.org/current/online/trjconv.html
-.. _trjcat: http://manual.gromacs.org/current/online/trjcat.html
-.. _eneconv: http://manual.gromacs.org/current/online/eneconv.html
-.. _grompp: http://manual.gromacs.org/current/online/grompp.html
-.. _mdrun: http://manual.gromacs.org/current/online/mdrun.html
-.. _`mdp options`: http://manual.gromacs.org/current/online/mdp_opt.html
-.. _`Run control options in the MDP file`: http://manual.gromacs.org/current/online/mdp_opt.html#run
-.. _`make_ndx`: http://manual.gromacs.org/current/online/make_ndx.html
-.. _`g_tune_pme`: http://manual.gromacs.org/current/online/g_tune_pme.html
-.. _gmxcheck: http://manual.gromacs.org/current/online/gmxcheck.html
+.. _gmx pdb2gmx: http://manual.gromacs.org/programs/gmx-pdb2gmx.html
+.. _gmx editconf: http://manual.gromacs.org/programs/gmx-editconf.html
+.. _gmx solvate: http://manual.gromacs.org/programs/gmx-solvate.html
+.. _gmx genion: http://manual.gromacs.org/programs/gmx-genion.html
+.. _gmx trjconv: http://manual.gromacs.org/programs/gmx-trjconv.html
+.. _gmx trjcat: http://manual.gromacs.org/programs/gmx-trjcat.html
+.. _gmx eneconv: http://manual.gromacs.org/programs/gmx-eneconv.html
+.. _gmx grompp: http://manual.gromacs.org/programs/gmx-grompp.html
+.. _gmx mdrun: http://manual.gromacs.org/programs/gmx-mdrun.html
+.. _`mdp options`: http://manual.gromacs.org/online/mdp_opt.html
+.. _`Run control options in the MDP file`: http://manual.gromacs.org/online/mdp_opt.html#run
+.. _`gmx make_ndx`: http://manual.gromacs.org/programs/gmx-make_ndx.html
+.. _`gmx tune_pme`: http://manual.gromacs.org/programs/gmx-tune_pme.html
+.. _gmx check: http://manual.gromacs.org/programs/gmx-check.html
 
 .. _Gromacs manual: http://manual.gromacs.org/
 .. _Gromacs documentation: http://www.gromacs.org/Documentation
 .. _manual section: http://www.gromacs.org/Documentation/Manual
 
-.. _`g_energy`: http://manual.gromacs.org/current/online/g_energy.html
-.. _`g_rms`: http://manual.gromacs.org/current/online/g_rms.html
-.. _`g_rmsf`: http://manual.gromacs.org/current/online/g_rmsf.html
-.. _`g_gyrate`: http://manual.gromacs.org/current/online/g_gyrate.html
-.. _`g_dist`: http://manual.gromacs.org/current/online/g_dist.html
-.. _`g_mindist`: http://manual.gromacs.org/current/online/g_mindist.html
-.. _`do_dssp`: http://manual.gromacs.org/current/online/do_dssp.html
+.. _`gmx energy`: http://manual.gromacs.org/programs/gmx-energy.html
+.. _`gmx rms`: http://manual.gromacs.org/programs/gmx-rms.html
+.. _`gmx rmsf`: http://manual.gromacs.org/programs/gmx-rmsf.html
+.. _`gmx gyrate`: http://manual.gromacs.org/programs/gmx-gyrate.html
+.. _`gmx dist`: http://manual.gromacs.org/programs/gmx-dist.html
+.. _`gmx mindist`: http://manual.gromacs.org/programs/gmx-mindist.html
+.. _`gmx do_dssp`: http://manual.gromacs.org/programs/gmx-do_dssp.html
 
 .. _DSSP: http://swift.cmbi.ru.nl/gv/dssp/
 .. _`ATOM record of a PDB file`: http://www.wwpdb.org/documentation/format33/sect9.html#ATOM
