@@ -55,7 +55,6 @@ Basic analysis
 
 .. toctree::
    :maxdepth: 1
-   :numbered:
 
    analysis/rmsd
    analysis/rmsf
