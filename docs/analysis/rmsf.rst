@@ -78,8 +78,8 @@ extract the B-factor ("temperatureFactor") from columns 61-66 in the
    .. code-block:: bash
 
       printf "Calpha\n" | \
-          g_rmsf -s ../../MD/md.tpr -f ../../MD/md.xtc -n  ../RMSD/CA.ndx \
-                 -o rmsf.xvg -fit -xvg none
+          gmx rmsf -s ../../MD/md.tpr -f ../../MD/md.xtc -n  ../RMSD/CA.ndx \
+                   -o rmsf.xvg -fit -xvg none
 		   
 
    so that you can easily read the data with :func:`numpy.loadtxt`:
@@ -87,18 +87,21 @@ extract the B-factor ("temperatureFactor") from columns 61-66 in the
    .. code-block:: python
 		   
       import matplotlib.pyplot as plt
-      import numpy as np
+      import numpy
       
-      resid, rmsf = np.loadtxt("rmsf.xvg", unpack=True)
+      resid, rmsf = numpy.loadtxt("rmsf.xvg", unpack=True)
       
       fig = plt.figure(figsize=(5,2.5))
       ax = fig.add_subplot(111)
       fig.subplots_adjust(bottom=0.2)
-      ax.set_xlabel("residue number")
-      ax.set_ylabel(r"C$_\alpha$ RMSF (nm)")
+      
       ax.fill_between(resid, rmsf, color="red", linestyle="-", alpha=0.1)
       ax.plot(resid, rmsf, color="red", linestyle="-")
+
+      ax.set_xlabel("residue number")
+      ax.set_ylabel(r"C$_\alpha$ RMSF (nm)")      
       ax.set_xlim(resid.min(), resid.max())
+      
       fig.savefig("rmsf_ca.png", dpi=300)
       fig.savefig("rmsf_ca.svg")
       fig.savefig("rmsf_ca.pdf")
