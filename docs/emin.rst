@@ -66,5 +66,5 @@ this information.
 .. _`mdp options`: http://manual.gromacs.org/online/mdp_opt.html
 .. _`Run control options in the MDP file`:
    http://manual.gromacs.org/online/mdp_opt.html#run
-.. _gmx grompp: http://manual.gromacs.org/programs/gmx-grompp.html
-.. _gmx mdrun: http://manual.gromacs.org/programs/gmx-mdrun.html
+.. _gmx grompp: http://manual.gromacs.org/documentation/current/onlinehelp/gmx-grompp.html
+.. _gmx mdrun: http://manual.gromacs.org/documentation/current/onlinehelp/gmx-mdrun.html

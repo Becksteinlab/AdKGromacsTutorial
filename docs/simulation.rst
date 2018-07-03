@@ -46,5 +46,5 @@ checkpoint file :file:`md.cpt` and all output files (:file:`md.xtc`,
 :file:`md.edr`, :file:`md.log`) in the current directory.
 
 
-.. _gmx grompp: http://manual.gromacs.org/programs/gmx-grompp.html
-.. _gmx mdrun: http://manual.gromacs.org/programs/gmx-mdrun.html
+.. _gmx grompp: http://manual.gromacs.org/documentation/current/onlinehelp/gmx-grompp.html
+.. _gmx mdrun: http://manual.gromacs.org/documentation/current/onlinehelp/gmx-mdrun.html

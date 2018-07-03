@@ -86,6 +86,6 @@ Visualize in VMD_::
 .. _Gromacs manual: http://manual.gromacs.org/
 .. _Gromacs documentation: http://www.gromacs.org/Documentation
 
-.. _gmx trjconv: http://manual.gromacs.org/programs/gmx-trjconv.html
+.. _gmx trjconv: http://manual.gromacs.org/documentation/current/onlinehelp/gmx-trjconv.html
 .. _VMD: http://www.ks.uiuc.edu/Research/vmd/
 .. _rhombic dodecahedron: http://mathworld.wolfram.com/RhombicDodecahedron.html
