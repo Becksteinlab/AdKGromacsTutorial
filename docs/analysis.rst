@@ -68,7 +68,7 @@ small selection of commonly used ones are shown here:
 
    
     
-.. See also::
+.. seealso::
 
    * For analysis coupled with visualization look at VMD_.
    * For analyzing MD trajectories in many common formats (including
