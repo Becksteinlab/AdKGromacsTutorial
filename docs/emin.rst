@@ -1,7 +1,7 @@
 .. -*- encoding: utf-8 -*-
 
-.. |kJ/mol/nm**2| replace:: kJ mol\ :sup:`-1` nm\ :sup:`-2`
-.. |Calpha| replace:: C\ :sub:`α`
+.. include:: /includes/defs.rst
+.. include:: /includes/links.rst
 
 .. _energy-minimization:		      
 
@@ -62,9 +62,3 @@ this information.
          *Broyden-Fletcher-Goldfarb-Shanno* (``integrator = l-bfgs``) minimizer.
          For details, see `Run control options in the MDP file`_.
 
-
-.. _`mdp options`: http://manual.gromacs.org/online/mdp_opt.html
-.. _`Run control options in the MDP file`:
-   http://manual.gromacs.org/online/mdp_opt.html#run
-.. _gmx grompp: http://manual.gromacs.org/documentation/current/onlinehelp/gmx-grompp.html
-.. _gmx mdrun: http://manual.gromacs.org/documentation/current/onlinehelp/gmx-mdrun.html

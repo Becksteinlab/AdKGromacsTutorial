@@ -1,8 +1,9 @@
 .. -*- encoding: utf-8 -*-
 
-.. |kJ/mol/nm**2| replace:: kJ mol\ :sup:`-1` nm\ :sup:`-2`
-.. |Calpha| replace:: C\ :sub:`α`
+.. include:: /includes/defs.rst
+.. include:: /includes/links.rst
 
+	     
 .. _radius-of-gyration:
 
 ====================
@@ -42,8 +43,7 @@ conformation but the simulation time in our test trajectory is too
 short to reveal the large conformational transition that AdK can
 undergo [Beckstein2009]_.)
 	 
-.. _`gmx gyrate`:
-   http://manual.gromacs.org/documentation/current/onlinehelp/gmx-gyrate.html
+
 
 .. rubric:: Footnotes
 

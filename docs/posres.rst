@@ -1,7 +1,8 @@
 .. -*- encoding: utf-8 -*-
 
-.. |kJ/mol/nm**2| replace:: kJ mol\ :sup:`-1` nm\ :sup:`-2`
-.. |Calpha| replace:: C\ :sub:`α`
+.. include:: /includes/defs.rst
+.. include:: /includes/links.rst
+   
 
 .. _position-restraints:
 
@@ -85,7 +86,5 @@ as if the water is in a distorted box shape whereas all further frames
 show a roughly spherical unit cell (the `rhombic dodecahedron`_).
 
 
-.. _VMD: http://www.ks.uiuc.edu/Research/vmd/
 .. _rhombic dodecahedron: http://mathworld.wolfram.com/RhombicDodecahedron.html
 
-.. _`mdp options`: http://manual.gromacs.org/online/mdp_opt.html

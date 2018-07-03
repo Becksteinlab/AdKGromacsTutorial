@@ -1,8 +1,8 @@
 .. -*- encoding: utf-8 -*-
 
-.. |kJ/mol/nm**2| replace:: kJ mol\ :sup:`-1` nm\ :sup:`-2`
-.. |Calpha| replace:: C\ :sub:`α`
-
+.. include:: /includes/defs.rst
+.. include:: /includes/links.rst
+   
 
 ======================
 Directory organization
@@ -110,5 +110,4 @@ Obtain starting structure
    you keep them, :program:`gmx pdb2gmx` in the next step will
    actually create entries in the topology for them.
 
-   
-.. _4AKE: http://www.rcsb.org/pdb/explore.do?structureId=4ake
+

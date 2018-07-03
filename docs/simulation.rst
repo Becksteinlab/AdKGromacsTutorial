@@ -1,7 +1,9 @@
 .. -*- encoding: utf-8 -*-
 
-.. |kJ/mol/nm**2| replace:: kJ mol\ :sup:`-1` nm\ :sup:`-2`
-.. |Calpha| replace:: C\ :sub:`α`
+.. include:: /includes/defs.rst
+.. include:: /includes/links.rst
+
+.. _equilibrium-MD:
 
 ==============================
 Equilibrium molecular dynamics
@@ -45,6 +47,3 @@ without harm. For a continuation to occur, Gromacs needs to find the
 checkpoint file :file:`md.cpt` and all output files (:file:`md.xtc`,
 :file:`md.edr`, :file:`md.log`) in the current directory.
 
-
-.. _gmx grompp: http://manual.gromacs.org/documentation/current/onlinehelp/gmx-grompp.html
-.. _gmx mdrun: http://manual.gromacs.org/documentation/current/onlinehelp/gmx-mdrun.html

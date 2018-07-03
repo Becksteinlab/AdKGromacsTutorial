@@ -1,5 +1,7 @@
-.. |kJ/mol/nm**2| replace:: kJ mol\ :sup:`-1` nm\ :sup:`-2`
-.. |Calpha| replace:: C\ :sub:`α`
+.. -*- encoding: utf-8 -*-
+
+.. include:: /includes/defs.rst
+.. include:: /includes/links.rst
 
 .. αβγδΔ
 
@@ -16,7 +18,6 @@ AdK Gromacs Tutorial
 ..   Adenylate Kinase (AdK). Secondary structure elements are colored
 ..   (magenta: α-helices, yellow: β-sheets).
 
-
 Objective
 =========
 
@@ -29,8 +30,10 @@ structural properties in equilibrium.
 Tutorial files
 ==============
 
-All of the necessary tutorial files can be found on GitHub and can be obtained
-by cloning the repository::
+All of the necessary tutorial files can be found on GitHub in the
+`Becksteinlab/AdKGromacsTutorial/tutorial
+<https://github.com/Becksteinlab/AdKGromacsTutorial/tree/master/tutorial>`_
+directory, which can be easily obtained by git-cloning the repository::
 
   git clone https://github.com/Becksteinlab/AdKGromacsTutorial.git
 

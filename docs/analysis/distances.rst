@@ -1,7 +1,7 @@
 .. -*- encoding: utf-8 -*-
 
-.. |kJ/mol/nm**2| replace:: kJ mol\ :sup:`-1` nm\ :sup:`-2`
-.. |Calpha| replace:: C\ :sub:`α`
+.. include:: /includes/defs.rst
+.. include:: /includes/links.rst
 
 
 .. _distances:
@@ -23,7 +23,7 @@ in a FRET experiment [Henzler-Wildman2007]_.
 First we need to create an index file containing the two groups::
 
  mkdir -p analysis/dist/I52_K145 && cd analysis/dist/I52_K145
- make_ndx -f ../../../MD/md.tpr -o I52_K145.ndx
+ gmx make_ndx -f ../../../MD/md.tpr -o I52_K145.ndx
 
 Use interactive commands like the following [#ndx_selections]_ ::
 
@@ -39,7 +39,7 @@ to generate the index file :file:`I52_K145.ndx`.
  
 Then run `gmx distance`_ and compute the distance between the two atoms::
 
-  printf "I52\nK145\n" | g_distance -s ../../../MD/md.tpr -f ../../../MD/md.xtc -n I52_K145.ndx -o dist.xvg
+  printf "I52\nK145\n" | gmx distance -s ../../../MD/md.tpr -f ../../../MD/md.xtc -n I52_K145.ndx -o dist.xvg
 
 The :file:`dist.xvg` file contains the distance in nm for each time
 step in ps, which can be plotted [#plot_distance]_.
@@ -58,9 +58,6 @@ periodic boundary effects, or use `gmx mindist`_.)
 
 .. SeeAlso:: [Beckstein2009]_ for a discussion of FRET distances in AdK.
 
-
-.. _`gmx distance`: http://manual.gromacs.org/programs/gmx-distance.html
-.. _`gmx mindist`: http://manual.gromacs.org/documentation/current/onlinehelp/gmx-mindist.html
 
 
 .. rubric:: Footnotes
@@ -87,8 +84,8 @@ periodic boundary effects, or use `gmx mindist`_.)
    .. code-block:: bash
 
       printf "I52\nK145\n" | \
-           g_distance -s ../../../MD/md.tpr -f ../../../MD/md.xtc \
-	              -n I52_K145.ndx -o dist.xvg -xvg none
+           gmx distance -s ../../../MD/md.tpr -f ../../../MD/md.xtc \
+	                -n I52_K145.ndx -o dist.xvg -xvg none
 		   
    so that you can easily read the data with :func:`numpy.loadtxt`:
 

@@ -1,7 +1,7 @@
 .. -*- encoding: utf-8 -*-
 
-.. |kJ/mol/nm**2| replace:: kJ mol\ :sup:`-1` nm\ :sup:`-2`
-.. |Calpha| replace:: C\ :sub:`α`
+.. include:: /includes/defs.rst
+.. include:: /includes/links.rst
 
 
 ==================================
@@ -71,15 +71,6 @@ The final output is :file:`solvation/ionized.pdb`. Check visually in
 VMD (but note that the dodecahedral box is not represented
 properly). [#visualization]_.
 
-
-
-.. _gmx pdb2gmx: http://manual.gromacs.org/documentation/current/onlinehelp/gmx-pdb2gmx.html
-.. _gmx editconf: http://manual.gromacs.org/documentation/current/onlinehelp/gmx-editconf.html
-.. _gmx solvate: http://manual.gromacs.org/documentation/current/onlinehelp/gmx-solvate.html
-.. _gmx genion: http://manual.gromacs.org/documentation/current/onlinehelp/gmx-genion.html
-.. _gmx trjconv: http://manual.gromacs.org/documentation/current/onlinehelp/gmx-trjconv.html
-.. _gmx trjcat: http://manual.gromacs.org/documentation/current/onlinehelp/gmx-trjcat.html
-.. _VMD: http://www.ks.uiuc.edu/Research/vmd/
 
 .. rubric:: Footnotes
 

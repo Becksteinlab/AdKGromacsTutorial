@@ -1,7 +1,7 @@
 .. -*- encoding: utf-8 -*-
 
-.. |kJ/mol/nm**2| replace:: kJ mol\ :sup:`-1` nm\ :sup:`-2`
-.. |Calpha| replace:: C\ :sub:`α`
+.. include:: /includes/defs.rst
+.. include:: /includes/links.rst
 
 
 .. _trajectory-visualization:
@@ -82,10 +82,4 @@ Visualize in VMD_::
           show a roughly spherical unit cell (the `rhombic dodecahedron`_).
 
 	  
-.. _Gromacs: http://www.gromacs.org  
-.. _Gromacs manual: http://manual.gromacs.org/
-.. _Gromacs documentation: http://www.gromacs.org/Documentation
-
-.. _gmx trjconv: http://manual.gromacs.org/documentation/current/onlinehelp/gmx-trjconv.html
-.. _VMD: http://www.ks.uiuc.edu/Research/vmd/
 .. _rhombic dodecahedron: http://mathworld.wolfram.com/RhombicDodecahedron.html

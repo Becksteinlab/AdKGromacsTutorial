@@ -1,8 +1,9 @@
 .. -*- encoding: utf-8 -*-
 
-.. |kJ/mol/nm**2| replace:: kJ mol\ :sup:`-1` nm\ :sup:`-2`
-.. |Calpha| replace:: C\ :sub:`α`
+.. include:: /includes/defs.rst
+.. include:: /includes/links.rst
 
+	     
 .. _RMSF:
 
 ======
@@ -24,7 +25,7 @@ Use the :file:`CA.ndx` file from the :ref:`RMSD` calculation with
 `gmx rmsf`_ ::
 
   mkdir analysis/RMSF && cd analysis/RMSF
-  printf "Calpha\n" | g_rmsf -s ../../MD/md.tpr -f ../../MD/md.xtc -n ../RMSD/CA.ndx -o rmsf.xvg -fit
+  printf "Calpha\n" | gmx rmsf -s ../../MD/md.tpr -f ../../MD/md.xtc -n ../RMSD/CA.ndx -o rmsf.xvg -fit
 
 A plot [#plot_rmsf]_ of :math:`\rho^{\mathrm{RMSF}}_{i}` versus residue number *i*
 shows the regions of high flexibility as peaks in the plot. Note that
@@ -36,7 +37,6 @@ profile.
    :alt: Per-residue RMSF
    
    Root mean square fluctuation (RMSF) of the |Calpha| atoms of AdK.
-
 
 
 
@@ -61,12 +61,8 @@ without hydrogens")).
 It is straightforward to write Python code that calculates the
 B-factor from the RMSF in :file:`rmsf.xvg` and it is also easy to
 extract the B-factor ("temperatureFactor") from columns 61-66 in the
-`ATOM record of a PDB file`_.
+`ATOM record of a PDB file`_. (Left as an exercise...)
 
-
-.. _`gmx rmsf`: http://manual.gromacs.org/documentation/current/onlinehelp/gmx-rmsf.html
-.. _`ATOM record of a PDB file`:
-   http://www.wwpdb.org/documentation/format33/sect9.html#ATOM
 
 .. rubric:: Footnotes
 

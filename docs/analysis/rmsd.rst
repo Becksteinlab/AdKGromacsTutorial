@@ -1,8 +1,7 @@
 .. -*- encoding: utf-8 -*-
 
-.. |kJ/mol/nm**2| replace:: kJ mol\ :sup:`-1` nm\ :sup:`-2`
-.. |Calpha| replace:: C\ :sub:`α`
-
+.. include:: /includes/defs.rst
+.. include:: /includes/links.rst
 
 
 .. _RMSD:
@@ -28,14 +27,14 @@ file). Work in a separate analysis directory::
   mkdir analysis/RMSD && cd analysis/RMSD
 
 First we **create an index file** for the |Calpha| atoms
-[#default_ndx_groups]_. Use `make_ndx`_ to create a file
+[#default_ndx_groups]_. Use `gmx make_ndx`_ to create a file
 :file:`ca.ndx` that contains the |Calpha| atoms as an *index
 group*. Start :program:`make_ndx` and use :file:`md.tpr` as input; the
 output index file will be :file:`ca.ndx`::
 
   gmx make_ndx -f ../../MD/md.tpr -o CA.ndx
 
-Use `make_ndx`_ interactively by typing the following commands [#scripted_make_ndx]_::
+Use `gmx make_ndx`_ interactively by typing the following commands [#scripted_make_ndx]_::
 
   keep 1
   a CA
@@ -67,12 +66,6 @@ Plot the timeseries data in the :file:`rmsd.xvg` [#plot_rmsd]_.
    
 
    
-.. links
-.. _`gmx rms`: http://manual.gromacs.org/current/online/g_rms.html
-.. _`make_ndx`: http://manual.gromacs.org/current/online/make_ndx.html
-.. _matplotlib: https://matplotlib.org
-.. _NumPy: http://www.numpy.org/
-
 .. rubric:: Footnotes
 	    
 .. [#default_ndx_groups] Actually, we don't need to create the index
@@ -91,10 +84,11 @@ Plot the timeseries data in the :file:`rmsd.xvg` [#plot_rmsd]_.
    analysis you might want to do.
 
 .. [#scripted_make_ndx] In scripts you can pipe all the interactive
-   commands to `make_ndx`_ by using the :code:`printf ... | make_ndx`
-   trick::
+   commands to `gmx make_ndx`_ by using the :code:`printf ... | gmx
+   make_ndx` trick::
      
-     printf "keep 0\ndel 0\na CA\nname 0 Calpha\nq\n" | make_ndx -f ../../MD/md.tpr -o CA.ndx
+     printf "keep 0\ndel 0\na CA\nname 0 Calpha\nq\n" | \
+          gmx make_ndx -f ../../MD/md.tpr -o CA.ndx
 
    This will accomplish the same thing as the interactive use
    described above.
