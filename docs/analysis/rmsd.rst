@@ -21,7 +21,7 @@ configuration space as function of the time step,
 between the current coordinates :math:`\mathbf{r}_{i}(t)` at time *t*
 and the reference coordinates :math:`\mathbf{r}_{i}^{\mathrm{ref}}`.
 
-We compute the |Calpha| **RMSD** with `g_rms`_ with respect to the
+We compute the |Calpha| **RMSD** with `gmx rms`_ with respect to the
 reference starting structure (the one used for creating the :file:`md.tpr`
 file). Work in a separate analysis directory::
 
@@ -49,31 +49,14 @@ created group to "Calpha", and saves and exits.)
 You can look at :file:`CA.ndx` and see all the index numbers listed
 under the heading ``[ Calpha ]``.
 
-Run :program:`g_rms`, using our newly defined group as the selection
+Run :program:`gmx rms`, using our newly defined group as the selection
 to fit and to compute the RMSD::
 
   printf "Calpha\nCalpha\n" | gmx rms -s ../../MD/md.tpr -f ../../MD/md.xtc -n CA.ndx -o rmsd.xvg -fit rot+trans
 
 Note that the units are nm.
 
-Plot the ``rmsd.xvg`` file as usual (you might want to use :kbd:`gmx rms
--xvg none` if you are processing with NumPy/matplotlib_):
-
-.. code-block:: python
-
-   import matplotlib.pyplot as plt
-   import numpy
-   t,rmsd = numpy.loadtxt("rmsd.xvg", unpack=True)
-   fig = plt.figure(figsize=(5,2.5)) 
-   ax = fig.add_subplot(111)
-   fig.subplots_adjust(bottom=0.2)
-   ax.set_xlabel("time $t$ (ps)")
-   ax.set_ylabel(r"C$_\alpha$ RMSD (nm)")
-   ax.fill_between(t,rmsd, color="blue", linestyle="-", alpha=0.1) 
-   ax.plot(t,rmsd, color="blue", linestyle="-") 
-   fig.savefig("rmsd_ca.png", dpi=300)
-   fig.savefig("rmsd_ca.svg")
-   fig.savefig("rmsd_ca.pdf")
+Plot the timeseries data in the :file:`rmsd.xvg` [#plot_rmsd]_.
 
 .. figure:: /figs/rmsd_ca.*
    :scale: 80%
@@ -85,9 +68,10 @@ Plot the ``rmsd.xvg`` file as usual (you might want to use :kbd:`gmx rms
 
    
 .. links
-.. _`g_rms`: http://manual.gromacs.org/current/online/g_rms.html
+.. _`gmx rms`: http://manual.gromacs.org/current/online/g_rms.html
 .. _`make_ndx`: http://manual.gromacs.org/current/online/make_ndx.html
 .. _matplotlib: https://matplotlib.org
+.. _NumPy: http://www.numpy.org/
 
 .. rubric:: Footnotes
 	    
@@ -115,17 +99,37 @@ Plot the ``rmsd.xvg`` file as usual (you might want to use :kbd:`gmx rms
    This will accomplish the same thing as the interactive use
    described above.
 
-.. [#ndx_selections] Note that one has to be careful when selecting
-   residue ids in :program:`make_ndx`. It is often the case that a PDB
-   file does not contain all residues, e.g. residues 1--8 might be
-   unresolved in the experiment and thus are missing from the PDB
-   file. The file then simply starts with residue number 9. Gromacs,
-   however, typically *renumbers residues so that they start at
-   1*. Thus, in this hypothetical case, a residue that might be
-   referred to in the literature as "residue 100" might actually be
-   residue 92 in the simulation (:math:`N^\mathrm{sim}_\mathrm{res} =
-   N^\mathrm{PDB}_\mathrm{res} - (\mathrm{min}
-   N^\mathrm{PDB}_\mathrm{res} - 1)`). Thus, if you wanted to select
-   the |Calpha| atom of residue 100 you would need to select :kbd:`r
-   92 & a CA` in :program:`make_ndx`.
+.. [#plot_rmsd]
 
+   If you use Python (namely NumPy_ and matplotlib_) then you might
+   want to use :kbd:`gmx rms -xvg none` so that *no XVG legend
+   information* is written to the output file
+
+   .. code-block:: bash
+
+      printf "Calpha\nCalpha\n" | \
+          gmx rms -s ../../MD/md.tpr -f ../../MD/md.xtc -n CA.ndx \
+	          -o rmsd.xvg -fit rot+trans -xvg none
+
+   and you can easily read the data with :func:`numpy.loadtxt`:
+
+   .. code-block:: python
+
+      import matplotlib.pyplot as plt
+      import numpy
+
+      t,rmsd = numpy.loadtxt("rmsd.xvg", unpack=True)
+
+      fig = plt.figure(figsize=(5,2.5)) 
+      ax = fig.add_subplot(111)
+      fig.subplots_adjust(bottom=0.2)
+
+      ax.fill_between(t,rmsd, color="blue", linestyle="-", alpha=0.1) 
+      ax.plot(t,rmsd, color="blue", linestyle="-")
+
+      ax.set_xlabel("time $t$ (ps)")
+      ax.set_ylabel(r"C$_\alpha$ RMSD (nm)")
+
+      fig.savefig("rmsd_ca.png", dpi=300)
+      fig.savefig("rmsd_ca.svg")
+      fig.savefig("rmsd_ca.pdf")   
