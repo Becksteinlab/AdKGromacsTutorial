@@ -20,17 +20,19 @@ AdK Gromacs Tutorial
 ..   (magenta: α-helices, yellow: β-sheets).
 
 
-:Gromacs: 5.x, 2016, 2018       
+:Gromacs: aiming for 2018 (maybe will work for 5.x, 2016)
 :Tutorial: |release|
 :Date: |today|
 
 .. warning::
 
-   This tutorial was originally based on an `older tutorial for Gromacs
-   4.x
+   This tutorial was originally based on an `older tutorial for
+   Gromacs 4.x
    <https://becksteinlab.physics.asu.edu/learning/33/tutorial-simulating-adk-with-gromacs>`_
    and has not been completely transitioned to modern Gromacs
-   versions. Please raise any problems in the `issue tracker
+   versions. It will not work seamlessly and a number of MDP options
+   are outdated and need to be updated. Please raise any problems in
+   the `issue tracker
    <https://github.com/Becksteinlab/AdKGromacsTutorial/issues>`_.
 
    
