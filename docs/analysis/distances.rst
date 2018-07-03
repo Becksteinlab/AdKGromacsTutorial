@@ -37,7 +37,7 @@ Use interactive commands like the following [#ndx_selections]_ ::
 
 to generate the index file :file:`I52_K145.ndx`.
  
-Then run `gmx distance`_ and compute the distance between the two atoms::
+Then run :ref:`gmx distance` and compute the distance between the two atoms::
 
   printf "I52\nK145\n" | gmx distance -s ../../../MD/md.tpr -f ../../../MD/md.xtc -n I52_K145.ndx -o dist.xvg
 
@@ -54,7 +54,7 @@ step in ps, which can be plotted [#plot_distance]_.
 (You can also use the centered and fitted trajectory
 :file:`md_fit.xtc` as an input instead of :file:`md.xtc` to make sure
 that the distance calculation does not contain any jumps due to
-periodic boundary effects, or use `gmx mindist`_.)
+periodic boundary effects, or use :ref:`gmx mindist`.)
 
 .. SeeAlso:: [Beckstein2009]_ for a discussion of FRET distances in AdK.
 

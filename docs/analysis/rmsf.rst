@@ -22,7 +22,7 @@ variance of the fluctuation around the average position:
         \right\rangle}
 
 Use the :file:`CA.ndx` file from the :ref:`RMSD` calculation with
-`gmx rmsf`_ ::
+:ref:`gmx rmsf` ::
 
   mkdir analysis/RMSF && cd analysis/RMSF
   printf "Calpha\n" | gmx rmsf -s ../../MD/md.tpr -f ../../MD/md.xtc -n ../RMSD/CA.ndx -o rmsf.xvg -fit

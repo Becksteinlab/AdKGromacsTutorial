@@ -43,25 +43,25 @@ documentation`_ to find out what else is available.
 The full `list of Gromacs commands`_ contains 98 different tools. A
 small selection of commonly used ones are shown here:
 
-`gmx energy`_
+:ref:`gmx energy`
     basic thermodynamic properties of the system
 
-`gmx rms`_
+:ref:`gmx rms`
     calculate the root mean square deviation from a reference structure
 
-`gmx rmsf`_
+:ref:`gmx rmsf`
     calculate the per-residue root mean square fluctuations
 
-`gmx gyrate`_
+:ref:`gmx gyrate`
     calculate the radius of gyration
 
-`gmx mindist`_ and `gmx distance`_
+:ref:`gmx mindist` and :ref:`gmx distance`
     calculate the distance between atoms or groups of atoms (make a
-    index file with `gmx make_ndx`_ to define the groups of
+    index file with :ref:`gmx make_ndx` to define the groups of
     interest). :program:`gmx mindist` is especially useful to find water
     molecules close to a region of interest.
 
-`gmx do_dssp`_
+:ref:`gmx do_dssp`
     Use the DSSP_ algorithm [Kabsch1983]_ to analyze the secondary structure
     (helices, sheets, ...). 
 

@@ -30,7 +30,7 @@ tutorial) that tells Gromacs MD program *how* to do energy minimization::
 The ``*.mdp`` file contains the settings that dictate the nature of the
 simulation. For energy minimization, we will use the simple *steepest
 descent* minimizer (``integrator = steep`` in ``em.mdp``, which runs in
-parallel). Use `gmx grompp`_ (the GROMacs PreProcessor) to generate the run
+parallel). Use :ref:`gmx grompp` (the GROMacs PreProcessor) to generate the run
 input file (TPR) from the run parameter file (MDP), coordinate file
 (the solvated system with ions; PDB), and the topology (TOP)::
 
@@ -41,7 +41,7 @@ input file (TPR) from the run parameter file (MDP), coordinate file
 Perform energy minimization
 ===========================
 
-The energy minimization is performed with `gmx mdrun`_ but by
+The energy minimization is performed with :ref:`gmx mdrun` but by
 using the appropriate ``integrator`` option in the `Run control
 options in the MDP file`_ it has been instructed to do a energy
 minimization::

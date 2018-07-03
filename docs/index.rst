@@ -18,6 +18,12 @@ AdK Gromacs Tutorial
 ..   Adenylate Kinase (AdK). Secondary structure elements are colored
 ..   (magenta: α-helices, yellow: β-sheets).
 
+
+:Gromacs: 5.x, 2016, 2018       
+:Tutorial: |release|
+:Date: |today|
+
+
 Objective
 =========
 

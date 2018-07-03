@@ -21,7 +21,7 @@ where :math:`M = \sum_{i=1}^{N} m_i` is the total mass and
 :math:`\mathbf{R} = N^{-1}\sum_{i=1}^{N} \mathbf{r}_i` is the center of
 mass of the protein consisting of :math:`N` atoms.
 
-The Gromacs tool `gmx gyrate`_ can be used to compute the radius of
+The Gromacs tool :ref:`gmx gyrate` can be used to compute the radius of
 gyration for the whole protein (using the pre-defined "Protein" index
 group) ::
 

@@ -52,7 +52,8 @@ supply it to :code:`gmx grompp -n md.ndx`.
 Perform equilibration
 =====================
 
-Run the position restraints equilibration simulation::
+Run the position restraints equilibration simulation with :ref:`gmx
+mdrun`::
 
   gmx mdrun -v -stepout 10 -s posres.tpr -deffnm posres -c posres.pdb
 

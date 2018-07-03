@@ -32,7 +32,7 @@ prism. You should *recenter* the trajectory so that the protein is at
 the center, *remap* the water molecules (and ions) to be located in a
 more convenient unitcell representation.
 
-We will use the `gmx trjconv`_ tool in Gromacs to center and remap our system.
+We will use the :ref:`gmx trjconv` tool in Gromacs to center and remap our system.
 
 .. Tip:: :program:`gmx trjconv` prompts the user with a number of questions that
          depend on the selected options. In the command line snippets below, the
@@ -52,7 +52,7 @@ Pinning down a tumbling protein
 
 It is often desirable to *RMS-fit* the protein on a reference structure
 (such as the first frame in the trajectory) to remove overall translation
-and rotation. In Gromacs, the `gmx trjconv`_ tool can also do more "trajectory
+and rotation. In Gromacs, the :ref:`gmx trjconv` tool can also do more "trajectory
 conversion tasks". After (1) centering and remapping the system, we want
 to (2) RMS-fit (due to technical limitations in :program:`gmx trjconv` you
 cannot do both at the same time).

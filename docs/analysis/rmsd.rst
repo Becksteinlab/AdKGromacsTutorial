@@ -20,21 +20,22 @@ configuration space as function of the time step,
 between the current coordinates :math:`\mathbf{r}_{i}(t)` at time *t*
 and the reference coordinates :math:`\mathbf{r}_{i}^{\mathrm{ref}}`.
 
-We compute the |Calpha| **RMSD** with `gmx rms`_ with respect to the
+We compute the |Calpha| **RMSD** with :ref:`gmx rms` with respect to the
 reference starting structure (the one used for creating the :file:`md.tpr`
 file). Work in a separate analysis directory::
 
   mkdir analysis/RMSD && cd analysis/RMSD
 
 First we **create an index file** for the |Calpha| atoms
-[#default_ndx_groups]_. Use `gmx make_ndx`_ to create a file
+[#default_ndx_groups]_. Use :ref:`gmx make_ndx` to create a file
 :file:`ca.ndx` that contains the |Calpha| atoms as an *index
 group*. Start :program:`make_ndx` and use :file:`md.tpr` as input; the
 output index file will be :file:`ca.ndx`::
 
   gmx make_ndx -f ../../MD/md.tpr -o CA.ndx
 
-Use `gmx make_ndx`_ interactively by typing the following commands [#scripted_make_ndx]_::
+Use :ref:`gmx make_ndx` interactively by typing the following commands
+[#scripted_make_ndx]_::
 
   keep 1
   a CA
@@ -76,15 +77,15 @@ Plot the timeseries data in the :file:`rmsd.xvg` [#plot_rmsd]_.
    ions in our case but could also contain other groups such as drug
    molecule or a lipid membrane in more complicated simulations),
    "Water_and_ions". You can see these index groups if you just run
-   :program:`make_ndx` on an input structure or if you interactively
-   select groups in :program:`trjconv`, :program:`g_rms`, ...
+   :ref:`gmx make_ndx` on an input structure or if you interactively
+   select groups in :ref:`gmx trjconv`, :ref:`gmx rms`, ...
 
    However, making the "Calpha" group yourself is a good exercise
    because in many cases there are no default index groups for the
    analysis you might want to do.
 
 .. [#scripted_make_ndx] In scripts you can pipe all the interactive
-   commands to `gmx make_ndx`_ by using the :code:`printf ... | gmx
+   commands to :ref:`gmx make_ndx` by using the :code:`printf ... | gmx
    make_ndx` trick::
      
      printf "keep 0\ndel 0\na CA\nname 0 Calpha\nq\n" | \

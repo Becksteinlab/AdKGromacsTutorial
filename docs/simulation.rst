@@ -12,7 +12,7 @@ Equilibrium molecular dynamics
 Set up the production run
 =========================
 
-As usual, we must tell Gromacs what it will be doing using `gmx grompp`_
+As usual, we must tell Gromacs what it will be doing using :ref:`gmx grompp`
 before we can perform our production simulation. Since we want to
 start our run where we left off (after doing equilibration), we
 prepare the TPR input file based on the last frame of the
@@ -30,7 +30,7 @@ which are known to reproduce the exact *NPT* ensemble distribution.
 Run the simulation
 ==================
 
-Run the simulation as usual with `gmx mdrun`_::
+Run the simulation as usual with :ref:`gmx mdrun`::
 
   gmx mdrun -v -stepout 10 -s md.tpr -deffnm md -cpi
 
