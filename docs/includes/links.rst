@@ -17,15 +17,17 @@
 .. _reference manual:
    http://manual.gromacs.org/documentation/current/manual-2018.2.pdf
 
-.. _`mdp options`: http://manual.gromacs.org/online/mdp_opt.html
-.. _`Run control options in the MDP file`: http://manual.gromacs.org/online/mdp_opt.html#run
+.. _`mdp options`:
+   http://manual.gromacs.org/documentation/current/user-guide/mdp-options.html
+.. _`Run control options in the MDP file`:
+   http://manual.gromacs.org/documentation/current/user-guide/mdp-options.html#run-control
 
 .. Gromacs commands: use intersphinx: :ref:`gmx command`
 
 .. Protein Databank   
 .. _4AKE: http://www.rcsb.org/pdb/explore.do?structureId=4ake
-
-.. _`ATOM record of a PDB file`: http://www.wwpdb.org/documentation/format33/sect9.html#ATOM
+.. _`ATOM record of a PDB file`:
+   https://www.wwpdb.org/documentation/file-format-content/format33/sect9.html#ATOM
 
 .. Other programs
 .. _VMD: http://www.ks.uiuc.edu/Research/vmd/
