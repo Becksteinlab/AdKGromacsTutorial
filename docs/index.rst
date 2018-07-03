@@ -2,7 +2,8 @@
 
 .. include:: /includes/defs.rst
 .. include:: /includes/links.rst
-
+.. highlight:: bash
+	     
 .. αβγδΔ
 
 
