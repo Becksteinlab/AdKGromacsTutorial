@@ -3,6 +3,8 @@
 .. |kJ/mol/nm**2| replace:: kJ mol\ :sup:`-1` nm\ :sup:`-2`
 .. |Calpha| replace:: C\ :sub:`α`
 
+.. _position-restraints:
+
 =================================
 Position-restrained equilibration
 =================================
